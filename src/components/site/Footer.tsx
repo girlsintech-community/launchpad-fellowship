@@ -48,14 +48,13 @@ export function Footer() {
               Get in touch
             </h4>
             <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
-              <li><a href="mailto:hello@i2pfellowship.org" className="hover:text-primary">hello@i2pfellowship.org</a></li>
+              <li><a href="mailto:girlsleadingtech@gmail.com" className="hover:text-primary break-all">girlsleadingtech@gmail.com</a></li>
             </ul>
             <div className="mt-5 flex gap-3">
               <a href="#" aria-label="Instagram" className="rounded-full border border-border p-2 hover:bg-muted hover:text-primary"><Instagram className="size-4" /></a>
               <a href="#" aria-label="LinkedIn" className="rounded-full border border-border p-2 hover:bg-muted hover:text-primary"><Linkedin className="size-4" /></a>
               <a href="#" aria-label="Twitter" className="rounded-full border border-border p-2 hover:bg-muted hover:text-primary"><Twitter className="size-4" /></a>
-              <a href="mailto:hello@i2pfellowship.org" aria-label="Email" className="rounded-full border border-border p-2 hover:bg-muted hover:text-primary"><Mail className="size-4" /></a>
+              <a href="mailto:girlsleadingtech@gmail.com" aria-label="Email" className="rounded-full border border-border p-2 hover:bg-muted hover:text-primary"><Mail className="size-4" /></a>
             </div>
           </div>
         </div>
