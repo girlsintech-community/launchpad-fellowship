@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Compass, Users, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
