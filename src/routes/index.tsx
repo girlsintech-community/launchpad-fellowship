@@ -243,9 +243,9 @@ function HomePage() {
             See full programme <ArrowRight className="size-4" />
           </Link>
         </div>
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div ref={stepsRef} className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
           {STEPS.map((s, i) => (
-            <div key={s.n} className="relative rounded-3xl border border-border bg-card p-7">
+            <div key={s.n} className="step-card relative rounded-3xl border border-border bg-card p-7 transition-transform hover:-translate-y-1 hover:shadow-lg will-change-transform">
               <span className="font-serif text-5xl text-accent">{s.n}</span>
               <h3 className="mt-3 font-serif text-2xl">{s.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
@@ -334,13 +334,13 @@ function HomePage() {
               Stop waiting for the perfect idea. Start with the one you have.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
-              Applications for the pilot cohort close soon. Spots are limited — and that's the point.
+              Our pilot cohort is already in motion — follow along as we build, launch and learn together.
             </p>
             <Link
-              to="/contact"
+              to="/programme"
               className="mt-9 inline-flex items-center gap-2 rounded-full bg-background px-8 py-4 text-base font-medium text-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
-              Apply to the pilot <ArrowRight className="size-4" />
+              Explore the programme <ArrowRight className="size-4" />
             </Link>
           </div>
         </div>
