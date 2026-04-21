@@ -67,6 +67,53 @@ const MENTORS = [
 ];
 
 function HomePage() {
+  const heroCardRef = useRef<HTMLDivElement>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
+
+  // 3D tilt on hero card (mouse parallax)
+  useEffect(() => {
+    const el = heroCardRef.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(el, {
+        rotateY: x * 14,
+        rotateX: -y * 14,
+        transformPerspective: 900,
+        transformOrigin: "center",
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    };
+    const onLeave = () =>
+      gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.8, ease: "power3.out" });
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  // Scroll-triggered 3D reveal on steps
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".step-card", {
+        opacity: 0,
+        y: 60,
+        rotateX: -25,
+        transformPerspective: 800,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: { trigger: stepsRef.current, start: "top 80%" },
+      });
+    }, stepsRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <SiteLayout>
       {/* Hero */}
@@ -74,12 +121,13 @@ function HomePage() {
         <div className="paper-texture absolute inset-0 opacity-60" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-16 lg:px-10 lg:pb-32 lg:pt-24">
           <div className="grid items-center gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-7 animate-fade-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Pilot cohort · Applications open
-              </span>
-              <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-7"
+            >
+              <h1 className="mt-2 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                 From idea to product.
                 <br />
                 <span className="italic text-primary">Together.</span>
@@ -89,37 +137,51 @@ function HomePage() {
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
-                  to="/contact"
+                  to="/programme"
                   className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  Apply to the pilot
+                  See how it works
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
-                  to="/programme"
+                  to="/about"
                   className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/60 px-7 py-3.5 text-base font-medium text-foreground hover:bg-muted"
                 >
-                  See how it works
+                  About I2P
                 </Link>
               </div>
 
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />12-week cohort</div>
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Hybrid format</div>
+                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week cohort</div>
+                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Virtual format</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary" />For student builders</div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative lg:col-span-5">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary/15 via-accent/20 to-secondary/15 shadow-xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
+              className="relative lg:col-span-5"
+              style={{ perspective: 1000 }}
+            >
+              <div
+                ref={heroCardRef}
+                className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary/15 via-accent/20 to-secondary/15 shadow-xl will-change-transform"
+              >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.4),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.35),transparent_55%)]" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border/60 bg-background/85 p-5 backdrop-blur">
                   <p className="font-serif text-sm italic text-muted-foreground">"Felt less like a programme and more like a small studio of friends shipping together."</p>
                   <p className="mt-2 text-xs font-medium text-foreground">— A future fellow, hopefully you</p>
                 </div>
               </div>
-              <div className="absolute -left-6 -top-6 hidden h-24 w-24 rotate-12 rounded-full border-2 border-dashed border-primary/40 lg:block" aria-hidden />
-            </div>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full border-2 border-dashed border-primary/40 lg:block"
+                aria-hidden
+              />
+            </motion.div>
           </div>
         </div>
       </section>
