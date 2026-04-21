@@ -9,7 +9,6 @@ const NAV = [
   { to: "/programme", label: "Programme" },
   { to: "/mentors", label: "Mentors" },
   { to: "/events", label: "Events" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
@@ -33,12 +32,9 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/" className="group flex items-center gap-2">
+        <Link to="/" aria-label="I2P Fellowship — Home" className="group flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-serif text-lg font-semibold">
             i
-          </span>
-          <span className="font-serif text-xl tracking-tight">
-            I2P <span className="text-muted-foreground font-normal italic">Fellowship</span>
           </span>
         </Link>
 
@@ -56,14 +52,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link
-            to="/contact"
-            className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
-          >
-            Apply now
-          </Link>
-        </div>
+        <div className="hidden lg:block w-9" aria-hidden />
 
         <button
           aria-label="Toggle menu"
@@ -88,13 +77,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
-            >
-              Apply now
-            </Link>
           </nav>
         </div>
       )}

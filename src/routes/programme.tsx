@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import {
   Accordion,
@@ -153,9 +153,7 @@ function ProgrammePage() {
 
       <section className="mx-auto max-w-5xl px-6 pb-20 text-center lg:px-10">
         <h2 className="font-serif text-4xl sm:text-5xl">Ready to build something real?</h2>
-        <Link to="/contact" className="mt-8 inline-flex items-center rounded-full bg-primary px-7 py-3.5 text-base font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg">
-          Apply to the pilot
-        </Link>
+        <p className="mt-4 text-muted-foreground">Questions? Reach us at <a href="mailto:girlsleadingtech@gmail.com" className="text-primary hover:underline">girlsleadingtech@gmail.com</a>.</p>
       </section>
     </SiteLayout>
   );
