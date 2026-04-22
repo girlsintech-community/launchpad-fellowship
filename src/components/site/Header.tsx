@@ -33,9 +33,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" aria-label="I2P Fellowship — Home" className="group flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-serif text-lg font-semibold">
-            i
-          </span>
+          <span className="font-serif text-lg tracking-tight text-foreground">I2P</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

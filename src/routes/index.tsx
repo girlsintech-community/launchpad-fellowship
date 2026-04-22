@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Calendar, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, type LucideIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -58,13 +58,35 @@ const STEPS = [
   { n: "04", t: "Iterate", d: "Measure, talk to users, ship again. The loop that turns ideas into products." },
 ];
 
-const MENTORS = [
-  { name: "Aanya Rao", role: "Product Lead, Razorpay" },
-  { name: "Karan Mehta", role: "Founder, Stealth" },
-  { name: "Priya S.", role: "Design Director, Swiggy" },
-  { name: "Rohan Iyer", role: "Eng Manager, Stripe" },
-  { name: "Tanvi Joshi", role: "GTM, Notion" },
-];
+function useTilt<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(el, {
+        rotateY: x * 12,
+        rotateX: -y * 12,
+        transformPerspective: 900,
+        transformOrigin: "center",
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    };
+    const onLeave = () =>
+      gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.8, ease: "power3.out" });
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+  return ref;
+}
 
 function HomePage() {
   const heroCardRef = useRef<HTMLDivElement>(null);
@@ -127,13 +149,17 @@ function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="lg:col-span-7"
             >
-              <h1 className="mt-2 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                From idea to product.
+              <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">The Fellowship</p>
+              <h1 className="mt-3 font-serif text-5xl leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-[5.5rem]">
+                Idea to Product
                 <br />
-                <span className="italic text-primary">Together.</span>
+                <span className="italic text-primary">(I2P) Fellowship.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                I2P is a fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real cohort. A real launch — to real users.
+              <p className="mt-6 font-serif text-xl italic text-muted-foreground">
+                From idea to product, together.
+              </p>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch — to real users.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
@@ -152,7 +178,7 @@ function HomePage() {
               </div>
 
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week cohort</div>
+                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week fellowship</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Virtual format</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary" />For student builders</div>
               </div>
@@ -192,18 +218,9 @@ function HomePage() {
           <p className="font-serif text-sm uppercase tracking-[0.2em] text-primary">What you get</p>
           <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">Four things that change everything.</h2>
         </div>
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
           {PILLARS.map((p) => (
-            <div
-              key={p.title}
-              className="group rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <p.icon className="size-5" />
-              </div>
-              <h3 className="mt-5 font-serif text-xl">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-            </div>
+            <PillarTiltCard key={p.title} pillar={p} />
           ))}
         </div>
       </section>
@@ -257,29 +274,20 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Mentors strip */}
+      {/* Mentors — coming soon */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="rounded-[2rem] border border-border bg-cream-deep p-10 lg:p-14">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="font-serif text-sm uppercase tracking-[0.2em] text-primary">Mentors</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Builders helping builders.</h2>
-            </div>
-            <Link to="/mentors" className="text-sm font-medium text-primary hover:underline">Meet the mentors →</Link>
-          </div>
-          <div className="mt-10 flex flex-wrap gap-4">
-            {MENTORS.map((m) => (
-              <div key={m.name} className="flex items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent font-serif text-sm font-medium text-primary-foreground">
-                  {m.name.split(" ").map((n) => n[0]).join("")}
-                </div>
-                <div className="text-sm">
-                  <p className="font-medium text-foreground">{m.name}</p>
-                  <p className="text-xs text-muted-foreground">{m.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="rounded-[2rem] border border-dashed border-primary/30 bg-cream-deep p-10 text-center lg:p-16">
+          <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">Mentors</p>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Our mentor bench is being curated.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            We're hand-picking operators, designers and founders who actually ship. Check back soon to meet them.
+          </p>
+          <Link
+            to="/mentors"
+            className="mt-7 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-background px-6 py-3 text-sm font-medium text-foreground hover:bg-muted"
+          >
+            Learn more <ArrowRight className="size-4" />
+          </Link>
         </div>
       </section>
 
@@ -292,59 +300,59 @@ function HomePage() {
         <p className="mt-6 text-sm text-muted-foreground">— Programme advisor</p>
       </section>
 
-      {/* Events teaser */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="font-serif text-sm uppercase tracking-[0.2em] text-primary">Coming up</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight">Open events for the curious.</h2>
-            <p className="mt-4 text-muted-foreground">Drop in before you apply. Meet the mentors, see the vibe.</p>
-            <Link to="/events" className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2.5 transition-all">
-              All events <ArrowRight className="size-4" />
-            </Link>
-          </div>
-          <div className="lg:col-span-8 space-y-3">
-            {[
-              { date: "May 12", title: "Open House: meet the I2P pilot team", tag: "Online" },
-              { date: "May 19", title: "Workshop · Talking to users without selling", tag: "Bangalore" },
-              { date: "Jun 02", title: "Office hours with Aanya Rao (Razorpay)", tag: "Online" },
-            ].map((e) => (
-              <div key={e.title} className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-md">
-                <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl bg-accent/30">
-                  <Calendar className="size-4 text-foreground/60" />
-                  <span className="mt-0.5 font-serif text-xs">{e.date}</span>
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-foreground">{e.title}</p>
-                  <p className="mt-0.5 text-xs uppercase tracking-wider text-muted-foreground">{e.tag}</p>
-                </div>
-                <ArrowRight className="size-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-primary px-8 py-20 text-center text-primary-foreground sm:px-14 lg:py-28">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.78_0.12_78/0.3),transparent_50%),radial-gradient(circle_at_80%_80%,oklch(0.36_0.06_165/0.4),transparent_50%)]" />
-          <div className="relative">
-            <h2 className="mx-auto max-w-3xl font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              Stop waiting for the perfect idea. Start with the one you have.
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
-              Our pilot cohort is already in motion — follow along as we build, launch and learn together.
-            </p>
-            <Link
-              to="/programme"
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-background px-8 py-4 text-base font-medium text-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              Explore the programme <ArrowRight className="size-4" />
-            </Link>
-          </div>
-        </div>
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10" style={{ perspective: 1200 }}>
+        <FinalCtaTiltCard />
       </section>
     </SiteLayout>
+  );
+}
+
+type Pillar = { icon: LucideIcon; title: string; body: string };
+
+function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
+  const ref = useTilt<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="group relative rounded-3xl border border-border bg-card p-7 transition-all hover:border-primary/40 hover:shadow-xl will-change-transform"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+        style={{ transform: "translateZ(40px)" }}
+      >
+        <p.icon className="size-5" />
+      </div>
+      <h3 className="mt-5 font-serif text-xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
+    </div>
+  );
+}
+
+function FinalCtaTiltCard() {
+  const ref = useTilt<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="relative overflow-hidden rounded-[2.5rem] bg-primary px-8 py-20 text-center text-primary-foreground shadow-xl will-change-transform sm:px-14 lg:py-28"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.78_0.12_78/0.3),transparent_50%),radial-gradient(circle_at_80%_80%,oklch(0.36_0.06_165/0.4),transparent_50%)]" />
+      <div className="relative" style={{ transform: "translateZ(40px)" }}>
+        <h2 className="mx-auto max-w-3xl font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
+          Stop waiting for the perfect idea. Start with the one you have.
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
+          Our pilot fellowship is already in motion — follow along as we build, launch and learn together.
+        </p>
+        <Link
+          to="/programme"
+          className="mt-9 inline-flex items-center gap-2 rounded-full bg-background px-8 py-4 text-base font-medium text-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
+        >
+          Explore the programme <ArrowRight className="size-4" />
+        </Link>
+      </div>
+    </div>
   );
 }
