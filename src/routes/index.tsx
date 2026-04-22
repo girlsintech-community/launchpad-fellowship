@@ -58,13 +58,35 @@ const STEPS = [
   { n: "04", t: "Iterate", d: "Measure, talk to users, ship again. The loop that turns ideas into products." },
 ];
 
-const MENTORS = [
-  { name: "Aanya Rao", role: "Product Lead, Razorpay" },
-  { name: "Karan Mehta", role: "Founder, Stealth" },
-  { name: "Priya S.", role: "Design Director, Swiggy" },
-  { name: "Rohan Iyer", role: "Eng Manager, Stripe" },
-  { name: "Tanvi Joshi", role: "GTM, Notion" },
-];
+function useTilt<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(el, {
+        rotateY: x * 12,
+        rotateX: -y * 12,
+        transformPerspective: 900,
+        transformOrigin: "center",
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    };
+    const onLeave = () =>
+      gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.8, ease: "power3.out" });
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+  return ref;
+}
 
 function HomePage() {
   const heroCardRef = useRef<HTMLDivElement>(null);
