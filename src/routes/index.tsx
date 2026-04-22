@@ -307,3 +307,52 @@ function HomePage() {
     </SiteLayout>
   );
 }
+
+type Pillar = { icon: LucideIcon; title: string; body: string };
+
+function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
+  const ref = useTilt<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="group relative rounded-3xl border border-border bg-card p-7 transition-all hover:border-primary/40 hover:shadow-xl will-change-transform"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+        style={{ transform: "translateZ(40px)" }}
+      >
+        <p.icon className="size-5" />
+      </div>
+      <h3 className="mt-5 font-serif text-xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
+    </div>
+  );
+}
+
+function FinalCtaTiltCard() {
+  const ref = useTilt<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="relative overflow-hidden rounded-[2.5rem] bg-primary px-8 py-20 text-center text-primary-foreground shadow-xl will-change-transform sm:px-14 lg:py-28"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.78_0.12_78/0.3),transparent_50%),radial-gradient(circle_at_80%_80%,oklch(0.36_0.06_165/0.4),transparent_50%)]" />
+      <div className="relative" style={{ transform: "translateZ(40px)" }}>
+        <h2 className="mx-auto max-w-3xl font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
+          Stop waiting for the perfect idea. Start with the one you have.
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
+          Our pilot fellowship is already in motion — follow along as we build, launch and learn together.
+        </p>
+        <Link
+          to="/programme"
+          className="mt-9 inline-flex items-center gap-2 rounded-full bg-background px-8 py-4 text-base font-medium text-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
+        >
+          Explore the programme <ArrowRight className="size-4" />
+        </Link>
+      </div>
+    </div>
+  );
+}
