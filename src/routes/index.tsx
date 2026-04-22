@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Calendar, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, type LucideIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
