@@ -127,13 +127,17 @@ function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="lg:col-span-7"
             >
-              <h1 className="mt-2 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                From idea to product.
+              <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">The Fellowship</p>
+              <h1 className="mt-3 font-serif text-5xl leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-[5.5rem]">
+                Idea to Product
                 <br />
-                <span className="italic text-primary">Together.</span>
+                <span className="italic text-primary">(I2P) Fellowship.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                I2P is a fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real cohort. A real launch — to real users.
+              <p className="mt-6 font-serif text-xl italic text-muted-foreground">
+                From idea to product, together.
+              </p>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch — to real users.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
@@ -152,7 +156,7 @@ function HomePage() {
               </div>
 
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week cohort</div>
+                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week fellowship</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Virtual format</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary" />For student builders</div>
               </div>
