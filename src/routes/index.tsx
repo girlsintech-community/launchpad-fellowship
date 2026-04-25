@@ -379,3 +379,36 @@ function FinalCtaTiltCard() {
     </div>
   );
 }
+
+function CountStat({ value, label, icon: Icon }: { value: number; label: string; icon: LucideIcon }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obj = { v: 0 };
+    const tween = gsap.to(obj, {
+      v: value,
+      duration: 1.6,
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 90%" },
+      onUpdate: () => {
+        el.textContent = Math.round(obj.v).toString();
+      },
+    });
+    return () => {
+      tween.kill();
+    };
+  }, [value]);
+  return (
+    <div className="flex flex-col items-center gap-3 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+        <Icon className="size-5" />
+      </div>
+      <div className="font-serif text-6xl leading-none text-foreground sm:text-7xl">
+        <span ref={ref}>0</span>
+      </div>
+      <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
