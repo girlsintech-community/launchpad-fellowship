@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, type LucideIcon } from "lucide-react";
+import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, Globe2, MapPin, type LucideIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { FELLOWS_STATS } from "@/data/fellows";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -225,7 +226,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Not a competition */}
+      {/* Cohort stats */}
+      <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="grid gap-6 rounded-[2rem] border border-border bg-card p-8 sm:grid-cols-3 lg:p-12"
+        >
+          <CountStat value={FELLOWS_STATS.fellows} label="Fellows" icon={Users} />
+          <CountStat value={FELLOWS_STATS.countries} label="Countries" icon={Globe2} />
+          <CountStat value={FELLOWS_STATS.states} label="States" icon={MapPin} />
+        </motion.div>
+        <div className="mt-6 flex justify-center">
+          <Link
+            to="/fellows"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2.5 transition-all"
+          >
+            Meet the fellows <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="overflow-hidden rounded-[2.5rem] bg-secondary px-8 py-16 text-secondary-foreground sm:px-14 lg:px-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12">
@@ -356,3 +379,36 @@ function FinalCtaTiltCard() {
     </div>
   );
 }
+
+function CountStat({ value, label, icon: Icon }: { value: number; label: string; icon: LucideIcon }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obj = { v: 0 };
+    const tween = gsap.to(obj, {
+      v: value,
+      duration: 1.6,
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 90%" },
+      onUpdate: () => {
+        el.textContent = Math.round(obj.v).toString();
+      },
+    });
+    return () => {
+      tween.kill();
+    };
+  }, [value]);
+  return (
+    <div className="flex flex-col items-center gap-3 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+        <Icon className="size-5" />
+      </div>
+      <div className="font-serif text-6xl leading-none text-foreground sm:text-7xl">
+        <span ref={ref}>0</span>
+      </div>
+      <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+

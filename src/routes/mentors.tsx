@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Users } from "lucide-react";
+import { ArrowUpRight, Users } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/mentors")({
@@ -46,16 +46,18 @@ function MentorsPage() {
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:girlsleadingtech@gmail.com"
+              href="https://airtable.com/appeThZsiIJFxoIjD/pag8RLV7ysAwhXOQ7/form"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
-              <Mail className="size-4" /> Notify me
+              Apply to mentor <ArrowUpRight className="size-4" />
             </a>
             <a
-              href="mailto:girlsleadingtech@gmail.com?subject=I'd%20like%20to%20mentor%20with%20I2P"
+              href="mailto:girlsleadingtech@gmail.com?subject=Notify%20me%20about%20I2P%20mentors"
               className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-7 py-3.5 text-sm font-medium text-foreground hover:bg-muted"
             >
-              Mentor with us
+              Notify me when mentors go live
             </a>
           </div>
         </motion.div>
