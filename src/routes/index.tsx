@@ -338,17 +338,11 @@ function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
   return (
     <div
       ref={ref}
-      className="group relative rounded-3xl border border-border bg-card p-7 transition-all hover:border-primary/40 hover:shadow-xl will-change-transform"
+      className="group relative rounded-3xl border border-border bg-card p-8 transition-all hover:border-primary/40 hover:shadow-xl will-change-transform"
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div
-        className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
-        style={{ transform: "translateZ(40px)" }}
-      >
-        <p.icon className="size-5" />
-      </div>
-      <h3 className="mt-5 font-serif text-xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
+      <h3 className="font-serif text-2xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
     </div>
   );
 }
