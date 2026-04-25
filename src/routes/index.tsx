@@ -226,7 +226,29 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Not a competition */}
+      {/* Cohort stats */}
+      <section className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="grid gap-6 rounded-[2rem] border border-border bg-card p-8 sm:grid-cols-3 lg:p-12"
+        >
+          <CountStat value={FELLOWS_STATS.fellows} label="Fellows" icon={Users} />
+          <CountStat value={FELLOWS_STATS.countries} label="Countries" icon={Globe2} />
+          <CountStat value={FELLOWS_STATS.states} label="States" icon={MapPin} />
+        </motion.div>
+        <div className="mt-6 flex justify-center">
+          <Link
+            to="/fellows"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2.5 transition-all"
+          >
+            Meet the fellows <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="overflow-hidden rounded-[2.5rem] bg-secondary px-8 py-16 text-secondary-foreground sm:px-14 lg:px-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12">
