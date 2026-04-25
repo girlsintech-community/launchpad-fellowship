@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, Globe2, MapPin, type LucideIcon } from "lucide-react";
+import { ArrowRight, Users, Globe2, MapPin, Quote, Heart, type LucideIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -31,26 +31,25 @@ export const Route = createFileRoute("/")({
 
 const PILLARS = [
   {
-    icon: Sparkles,
     title: "Real mentorship",
     body: "Weekly 1:1s and office hours with operators who've shipped products people use.",
   },
   {
-    icon: Users,
     title: "A real cohort",
     body: "A small group of student founders who push, support and ship alongside you.",
   },
   {
-    icon: Rocket,
     title: "A real launch",
     body: "Don't stop at a pitch deck. Ship to real users and learn what they actually do.",
   },
   {
-    icon: RefreshCcw,
     title: "Iterate forever",
     body: "Feedback loops, not finish lines. Leave with a product you keep building.",
   },
 ];
+
+const HERO_IMAGE =
+  "https://v5.airtableusercontent.com/v3/u/52/52/1777140000000/i5K_k1SSLVRZjwOo3uIcgw/6STrxoOvI0ZyMSuViNQq-hKhMQNQ4PwGNbe0TCXkANcntLdIyATEI-AAVW2xvPUdpPDb70ow1Z-h2utfZU511UhSG3CKDRqPgkmkXkr9zFEfQbB5Viuv1bkUSDr6zlAFPIXVgjhT3kdhtmXELvOAmg/ENlmtAfZ09tZhxkWrgzpDPvboI0JTQW9Ze7q8hEEWhw";
 
 const STEPS = [
   { n: "01", t: "Idea", d: "Pressure-test your problem with mentors and peers. Sharpen the wedge." },
