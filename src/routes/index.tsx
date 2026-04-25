@@ -12,13 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "I2P Fellowship — From idea to product. Together." },
+      { title: "I2P Fellowship, From idea to product. Together." },
       {
         name: "description",
         content:
-          "A pilot fellowship for students to turn ideas into real products — with mentorship, community, and real users. Not a competition, a community.",
+          "A pilot fellowship for students to turn ideas into real products, with mentorship, community, and real users. Not a competition, a community.",
       },
-      { property: "og:title", content: "I2P Fellowship — From idea to product. Together." },
+      { property: "og:title", content: "I2P Fellowship, From idea to product. Together." },
       {
         property: "og:description",
         content:
@@ -160,7 +160,7 @@ function HomePage() {
                 From idea to product, together.
               </p>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch — to real users.
+                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch, to real users.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
@@ -262,7 +262,7 @@ function HomePage() {
             </div>
             <div className="lg:col-span-5">
               <p className="text-lg leading-relaxed text-secondary-foreground/85">
-                No leaderboards. No winners. No "demo day" theatre. Just a small group of student founders helping each other ship real things to real people — and getting honest feedback from people who've done it before.
+                No leaderboards. No winners. No "demo day" theatre. Just a small group of student founders helping each other ship real things to real people, and getting honest feedback from people who've done it before.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-secondary-foreground/85">
                 You'll leave with a product, not a pitch.
@@ -297,7 +297,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Mentors — coming soon */}
+      {/* Mentors, coming soon */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="rounded-[2rem] border border-dashed border-primary/30 bg-cream-deep p-10 text-center lg:p-16">
           <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">Mentors</p>
@@ -361,7 +361,7 @@ function FinalCtaTiltCard() {
           Stop waiting for the perfect idea. Start with the one you have.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
-          Our pilot fellowship is already in motion — follow along as we build, launch and learn together.
+          Our pilot fellowship is already in motion, follow along as we build, launch and learn together.
         </p>
         <Link
           to="/programme"

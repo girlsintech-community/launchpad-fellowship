@@ -22,7 +22,7 @@ const NAV_LINKS = [
   { to: "/events", label: "Events" },
 ] as const;
 
-// X/Twitter icon (lucide-react has Twitter — fine for now)
+// X/Twitter icon (lucide-react has Twitter, fine for now)
 const XIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -82,7 +82,7 @@ export function Footer() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        {/* Top — tagline + mailto pill */}
+        {/* Top, tagline + mailto pill */}
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="font-serif text-xs uppercase tracking-[0.28em] text-accent">
@@ -114,12 +114,12 @@ export function Footer() {
               <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
             <p className="mt-3 px-2 text-xs text-secondary-foreground/60">
-              Drop us a line — we read everything.
+              Drop us a line, we read everything.
             </p>
           </div>
         </div>
 
-        {/* Middle — explore + connect + initiatives */}
+        {/* Middle, explore + connect + initiatives */}
         <div className="mt-16 grid gap-12 border-t border-secondary-foreground/15 pt-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-3">
             <h4 className="font-serif text-xs uppercase tracking-[0.22em] text-secondary-foreground/60">

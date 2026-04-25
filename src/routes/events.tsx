@@ -8,9 +8,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Events — I2P Fellowship" },
+      { title: "Events, I2P Fellowship" },
       { name: "description", content: "Open houses, workshops, office hours and meetups from the I2P Fellowship." },
-      { property: "og:title", content: "Events — I2P Fellowship" },
+      { property: "og:title", content: "Events, I2P Fellowship" },
       { property: "og:description", content: "Something good is brewing. Events coming soon." },
     ],
   }),
@@ -72,7 +72,7 @@ function EventsPage() {
               We're cooking up something <span className="italic text-primary">good.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              No events lined up just yet — but workshops, open houses and office hours are on the way. Check back soon, or drop us a line and we'll keep you posted.
+              No events lined up just yet, but workshops, open houses and office hours are on the way. Check back soon, or drop us a line and we'll keep you posted.
             </p>
             <a
               href="mailto:girlsleadingtech@gmail.com"

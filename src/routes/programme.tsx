@@ -10,9 +10,9 @@ import {
 export const Route = createFileRoute("/programme")({
   head: () => ({
     meta: [
-      { title: "Programme — How I2P Fellowship works" },
-      { name: "description", content: "A 12-week phase-by-phase breakdown of the I2P Fellowship — what you'll do, what you get, and what we expect." },
-      { property: "og:title", content: "Programme — How I2P Fellowship works" },
+      { title: "Programme, How I2P Fellowship works" },
+      { name: "description", content: "A 12-week phase-by-phase breakdown of the I2P Fellowship, what you'll do, what you get, and what we expect." },
+      { property: "og:title", content: "Programme, How I2P Fellowship works" },
       { property: "og:description", content: "Idea → Build → Launch → Iterate. Twelve weeks. One real product." },
     ],
   }),
@@ -23,7 +23,7 @@ const PHASES = [
   {
     weeks: "Weeks 1–3",
     title: "Idea",
-    body: "Sharpen the problem. Talk to 30 potential users. Define the wedge — the smallest, sharpest thing worth building first.",
+    body: "Sharpen the problem. Talk to 30 potential users. Define the wedge, the smallest, sharpest thing worth building first.",
     deliverable: "A one-page problem brief & a v0 spec.",
   },
   {
@@ -35,13 +35,13 @@ const PHASES = [
   {
     weeks: "Weeks 8–10",
     title: "Launch",
-    body: "Real launch. Public posts, communities, cold DMs that don't suck. First 100 real users — and what they actually do.",
+    body: "Real launch. Public posts, communities, cold DMs that don't suck. First 100 real users, and what they actually do.",
     deliverable: "A live product with a real user base.",
   },
   {
     weeks: "Weeks 11–12",
     title: "Iterate",
-    body: "Measure. Talk to users. Ship again. Decide what's next — keep going, pivot, or open-source it.",
+    body: "Measure. Talk to users. Ship again. Decide what's next, keep going, pivot, or open-source it.",
     deliverable: "A founder's story you'll be proud to tell.",
   },
 ];
@@ -50,18 +50,18 @@ const PERKS = [
   "1:1 mentorship · ~2 hrs/week with a matched senior mentor",
   "Weekly cohort sessions · build sprints + show-and-tell",
   "Office hours with operators from product, design, eng, GTM",
-  "A small community Slack / Discord — kept tiny on purpose",
+  "A small community Slack / Discord, kept tiny on purpose",
   "Launch support · review, copy, channels, intros",
   "Light infra credits · domain, hosting, AI credits",
 ];
 
 const FAQS = [
-  { q: "How much does it cost?", a: "The pilot cohort is free for accepted students. Long-term we'll keep it accessible — no one will be priced out." },
+  { q: "How much does it cost?", a: "The pilot cohort is free for accepted students. Long-term we'll keep it accessible, no one will be priced out." },
   { q: "Is it online or in person?", a: "Hybrid. Most weekly sessions are online. We'll host 2–3 in-person meetups during the cohort, plus a final showcase." },
   { q: "Do I need a co-founder or a team?", a: "Nope. You can apply solo or as a pair. Many fellows find their co-founders inside the cohort." },
   { q: "Do I need to know how to code?", a: "Helpful but not required. We'll lean on no-code, vibe-coding tools and AI to help non-technical builders ship." },
   { q: "Do you take equity?", a: "No. We don't take equity, fees or IP. The product is 100% yours." },
-  { q: "How many fellows per cohort?", a: "The pilot is intentionally small — around 15 fellows. We'd rather go deep than wide." },
+  { q: "How many fellows per cohort?", a: "The pilot is intentionally small, around 15 fellows. We'd rather go deep than wide." },
 ];
 
 function ProgrammePage() {
@@ -73,7 +73,7 @@ function ProgrammePage() {
           Twelve weeks. One real product. <span className="italic">Forever changed.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          A focused, phase-by-phase journey from "I have an idea" to "I have users" — with the mentors, structure and peers to make it actually happen.
+          A focused, phase-by-phase journey from "I have an idea" to "I have users", with the mentors, structure and peers to make it actually happen.
         </p>
       </section>
 
@@ -127,7 +127,7 @@ function ProgrammePage() {
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Time</p>
               <h3 className="mt-3 font-serif text-2xl">~10 hours / week</h3>
-              <p className="mt-2 text-secondary-foreground/80">Designed to fit alongside coursework. Most fellows do more — because they want to.</p>
+              <p className="mt-2 text-secondary-foreground/80">Designed to fit alongside coursework. Most fellows do more, because they want to.</p>
             </div>
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Duration</p>

@@ -6,10 +6,10 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/mentors")({
   head: () => ({
     meta: [
-      { title: "Mentors — I2P Fellowship" },
+      { title: "Mentors, I2P Fellowship" },
       { name: "description", content: "Meet the operators, designers, engineers and founders mentoring the I2P Fellowship." },
-      { property: "og:title", content: "Mentors — I2P Fellowship" },
-      { property: "og:description", content: "The mentor bench behind I2P — being curated now." },
+      { property: "og:title", content: "Mentors, I2P Fellowship" },
+      { property: "og:description", content: "The mentor bench behind I2P, being curated now." },
     ],
   }),
   component: MentorsPage,
@@ -24,7 +24,7 @@ function MentorsPage() {
           Builders <span className="italic underline-accent">helping</span> builders.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Our mentors are operators — people who've actually shipped, sold, designed and shaped products you've used.
+          Our mentors are operators, people who've actually shipped, sold, designed and shaped products you've used.
         </p>
       </section>
 
@@ -42,7 +42,7 @@ function MentorsPage() {
             The bench is being <span className="italic text-primary">curated.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            We're hand-picking mentors who actually ship — operators, designers, engineers and founders. Check back soon to meet them.
+            We're hand-picking mentors who actually ship, operators, designers, engineers and founders. Check back soon to meet them.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a

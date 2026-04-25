@@ -12,13 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/fellows")({
   head: () => ({
     meta: [
-      { title: "Fellows — I2P Fellowship" },
+      { title: "Fellows, I2P Fellowship" },
       {
         name: "description",
         content:
-          "Meet the 13 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship — across 3 countries and 9 states.",
+          "Meet the 13 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship, across 3 countries and 9 states.",
       },
-      { property: "og:title", content: "Fellows — I2P Fellowship" },
+      { property: "og:title", content: "Fellows, I2P Fellowship" },
       {
         property: "og:description",
         content:
@@ -206,7 +206,7 @@ function FellowsPage() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
           >
-            Thirteen students, building in public, shipping for real users. They come from different cities, colleges and time zones — but they're all here for the same reason: to turn an idea into a product.
+            Thirteen students, building in public, shipping for real users. They come from different cities, colleges and time zones, but they're all here for the same reason: to turn an idea into a product.
           </motion.p>
 
           <div className="mt-12 grid grid-cols-3 gap-6 rounded-3xl border border-border bg-card p-8 sm:gap-10 lg:p-10">
@@ -236,7 +236,7 @@ function FellowsPage() {
                 Want to <span className="italic text-accent">guide</span> the next batch?
               </h2>
               <p className="mt-4 max-w-xl text-secondary-foreground/85">
-                If you've shipped products, run teams, or sold to real users — share your reps. We're always looking for mentors who'll show up for our fellows.
+                If you've shipped products, run teams, or sold to real users, share your reps. We're always looking for mentors who'll show up for our fellows.
               </p>
             </div>
             <div className="lg:col-span-4 lg:text-right">
