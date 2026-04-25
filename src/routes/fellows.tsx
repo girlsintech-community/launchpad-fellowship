@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { ArrowUpRight, Linkedin, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Linkedin, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FELLOWS, FELLOWS_STATS, fellowInitials, type Fellow } from "@/data/fellows";
 
@@ -94,14 +94,20 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           style={{ transform: "translateZ(40px)" }}
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.35),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.3),transparent_55%)]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-serif text-6xl font-medium text-foreground/80 sm:text-7xl">
-              {fellowInitials(fellow.name)}
-            </span>
-          </div>
-          <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-foreground/70 backdrop-blur">
-            <Sparkles className="size-3 text-primary" /> Fellow #{index + 1}
-          </div>
+          {fellow.image ? (
+            <img
+              src={fellow.image}
+              alt={fellow.name}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-serif text-6xl font-medium text-foreground/80 sm:text-7xl">
+                {fellowInitials(fellow.name)}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Body */}
@@ -135,7 +141,7 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           className="mt-4 rounded-xl border border-dashed border-border bg-muted/40 p-3 text-xs italic text-muted-foreground"
           style={{ transform: "translateZ(15px)" }}
         >
-          Idea coming soon — we'll share what they're building shortly.
+          Idea coming soon, we'll share what they're building shortly.
         </div>
       </div>
     </motion.div>
