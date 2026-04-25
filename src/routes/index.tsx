@@ -195,10 +195,16 @@ function HomePage() {
                 ref={heroCardRef}
                 className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary/15 via-accent/20 to-secondary/15 shadow-xl will-change-transform"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.4),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.35),transparent_55%)]" />
+                <img
+                  src={HERO_IMAGE}
+                  alt="An I2P fellow building"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border/60 bg-background/85 p-5 backdrop-blur">
                   <p className="font-serif text-sm italic text-muted-foreground">"Felt less like a programme and more like a small studio of friends shipping together."</p>
-                  <p className="mt-2 text-xs font-medium text-foreground">— A future fellow, hopefully you</p>
+                  <p className="mt-2 text-xs font-medium text-foreground">, A future fellow, hopefully you</p>
                 </div>
               </div>
               <motion.div
@@ -319,7 +325,7 @@ function HomePage() {
         <blockquote className="mt-6 font-serif text-3xl leading-tight italic text-foreground sm:text-4xl">
           "I built three things in college. I shipped <span className="underline-accent not-italic">none</span> of them. I2P is the programme I wish existed when I was 20."
         </blockquote>
-        <p className="mt-6 text-sm text-muted-foreground">— Programme advisor</p>
+        <p className="mt-6 text-sm text-muted-foreground">, Programme advisor</p>
       </section>
 
       {/* Final CTA */}
@@ -330,7 +336,7 @@ function HomePage() {
   );
 }
 
-type Pillar = { icon: LucideIcon; title: string; body: string };
+type Pillar = { title: string; body: string };
 
 function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
   const ref = useTilt<HTMLDivElement>();
