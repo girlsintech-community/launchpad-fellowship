@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { ArrowUpRight, Linkedin, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Linkedin, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FELLOWS, FELLOWS_STATS, fellowInitials, type Fellow } from "@/data/fellows";
 
@@ -12,13 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/fellows")({
   head: () => ({
     meta: [
-      { title: "Fellows — I2P Fellowship" },
+      { title: "Fellows, I2P Fellowship" },
       {
         name: "description",
         content:
-          "Meet the 13 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship — across 3 countries and 9 states.",
+          "Meet the 13 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship, across 3 countries and 9 states.",
       },
-      { property: "og:title", content: "Fellows — I2P Fellowship" },
+      { property: "og:title", content: "Fellows, I2P Fellowship" },
       {
         property: "og:description",
         content:
@@ -94,14 +94,20 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           style={{ transform: "translateZ(40px)" }}
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.35),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.3),transparent_55%)]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-serif text-6xl font-medium text-foreground/80 sm:text-7xl">
-              {fellowInitials(fellow.name)}
-            </span>
-          </div>
-          <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-foreground/70 backdrop-blur">
-            <Sparkles className="size-3 text-primary" /> Fellow #{index + 1}
-          </div>
+          {fellow.image ? (
+            <img
+              src={fellow.image}
+              alt={fellow.name}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-serif text-6xl font-medium text-foreground/80 sm:text-7xl">
+                {fellowInitials(fellow.name)}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Body */}
@@ -135,7 +141,7 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           className="mt-4 rounded-xl border border-dashed border-border bg-muted/40 p-3 text-xs italic text-muted-foreground"
           style={{ transform: "translateZ(15px)" }}
         >
-          Idea coming soon — we'll share what they're building shortly.
+          Idea coming soon, we'll share what they're building shortly.
         </div>
       </div>
     </motion.div>
@@ -200,7 +206,7 @@ function FellowsPage() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
           >
-            Thirteen students, building in public, shipping for real users. They come from different cities, colleges and time zones — but they're all here for the same reason: to turn an idea into a product.
+            Thirteen students, building in public, shipping for real users. They come from different cities, colleges and time zones, but they're all here for the same reason: to turn an idea into a product.
           </motion.p>
 
           <div className="mt-12 grid grid-cols-3 gap-6 rounded-3xl border border-border bg-card p-8 sm:gap-10 lg:p-10">
@@ -230,7 +236,7 @@ function FellowsPage() {
                 Want to <span className="italic text-accent">guide</span> the next batch?
               </h2>
               <p className="mt-4 max-w-xl text-secondary-foreground/85">
-                If you've shipped products, run teams, or sold to real users — share your reps. We're always looking for mentors who'll show up for our fellows.
+                If you've shipped products, run teams, or sold to real users, share your reps. We're always looking for mentors who'll show up for our fellows.
               </p>
             </div>
             <div className="lg:col-span-4 lg:text-right">

@@ -5,10 +5,10 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — I2P Fellowship" },
-      { name: "description", content: "The story, mission and people behind the Idea to Product Fellowship — a programme for student builders, not pitch competitors." },
-      { property: "og:title", content: "About — I2P Fellowship" },
-      { property: "og:description", content: "Why we're building a fellowship that's not a competition — and who it's for." },
+      { title: "About, I2P Fellowship" },
+      { name: "description", content: "The story, mission and people behind the Idea to Product Fellowship, a programme for student builders, not pitch competitors." },
+      { property: "og:title", content: "About, I2P Fellowship" },
+      { property: "og:description", content: "Why we're building a fellowship that's not a competition, and who it's for." },
     ],
   }),
   component: AboutPage,
@@ -36,7 +36,7 @@ function AboutPage() {
           We started I2P because <span className="italic underline-accent">the world has enough</span> pitch competitions.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Most student "innovation" programmes optimise for the wrong thing — slides, not shipped software; trophies, not users. I2P is a quiet pushback. A small, warm, focused space where students take an idea, build it, launch it, and learn from real people using it.
+          Most student "innovation" programmes optimise for the wrong thing, slides, not shipped software; trophies, not users. I2P is a quiet pushback. A small, warm, focused space where students take an idea, build it, launch it, and learn from real people using it.
         </p>
       </section>
 
@@ -45,7 +45,7 @@ function AboutPage() {
           <div>
             <h2 className="font-serif text-3xl sm:text-4xl">Our mission</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Help student founders ship their first real product to real users — with the mentorship, structure and community that's almost impossible to assemble alone.
+              Help student founders ship their first real product to real users, with the mentorship, structure and community that's almost impossible to assemble alone.
             </p>
           </div>
           <div>
@@ -90,7 +90,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <h2 className="font-serif text-4xl sm:text-5xl">Who's behind it.</h2>
-        <p className="mt-3 max-w-xl text-muted-foreground">A small team of operators, designers and educators — with a deep bench of mentors.</p>
+        <p className="mt-3 max-w-xl text-muted-foreground">A small team of operators, designers and educators, with a deep bench of mentors.</p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {TEAM.map((m) => (
             <div key={m.name} className="rounded-3xl border border-border bg-card p-7">

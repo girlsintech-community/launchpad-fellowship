@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Rocket, RefreshCcw, Quote, Globe2, MapPin, type LucideIcon } from "lucide-react";
+import { ArrowRight, Users, Globe2, MapPin, Quote, Heart, type LucideIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
@@ -12,13 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "I2P Fellowship — From idea to product. Together." },
+      { title: "I2P Fellowship, From idea to product. Together." },
       {
         name: "description",
         content:
-          "A pilot fellowship for students to turn ideas into real products — with mentorship, community, and real users. Not a competition, a community.",
+          "A pilot fellowship for students to turn ideas into real products, with mentorship, community, and real users. Not a competition, a community.",
       },
-      { property: "og:title", content: "I2P Fellowship — From idea to product. Together." },
+      { property: "og:title", content: "I2P Fellowship, From idea to product. Together." },
       {
         property: "og:description",
         content:
@@ -31,26 +31,25 @@ export const Route = createFileRoute("/")({
 
 const PILLARS = [
   {
-    icon: Sparkles,
     title: "Real mentorship",
     body: "Weekly 1:1s and office hours with operators who've shipped products people use.",
   },
   {
-    icon: Users,
     title: "A real cohort",
     body: "A small group of student founders who push, support and ship alongside you.",
   },
   {
-    icon: Rocket,
     title: "A real launch",
     body: "Don't stop at a pitch deck. Ship to real users and learn what they actually do.",
   },
   {
-    icon: RefreshCcw,
     title: "Iterate forever",
     body: "Feedback loops, not finish lines. Leave with a product you keep building.",
   },
 ];
+
+const HERO_IMAGE =
+  "https://v5.airtableusercontent.com/v3/u/52/52/1777140000000/i5K_k1SSLVRZjwOo3uIcgw/6STrxoOvI0ZyMSuViNQq-hKhMQNQ4PwGNbe0TCXkANcntLdIyATEI-AAVW2xvPUdpPDb70ow1Z-h2utfZU511UhSG3CKDRqPgkmkXkr9zFEfQbB5Viuv1bkUSDr6zlAFPIXVgjhT3kdhtmXELvOAmg/ENlmtAfZ09tZhxkWrgzpDPvboI0JTQW9Ze7q8hEEWhw";
 
 const STEPS = [
   { n: "01", t: "Idea", d: "Pressure-test your problem with mentors and peers. Sharpen the wedge." },
@@ -160,7 +159,7 @@ function HomePage() {
                 From idea to product, together.
               </p>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch — to real users.
+                A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch, to real users.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <Link
@@ -196,10 +195,16 @@ function HomePage() {
                 ref={heroCardRef}
                 className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary/15 via-accent/20 to-secondary/15 shadow-xl will-change-transform"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.4),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.35),transparent_55%)]" />
+                <img
+                  src={HERO_IMAGE}
+                  alt="An I2P fellow building"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border/60 bg-background/85 p-5 backdrop-blur">
                   <p className="font-serif text-sm italic text-muted-foreground">"Felt less like a programme and more like a small studio of friends shipping together."</p>
-                  <p className="mt-2 text-xs font-medium text-foreground">— A future fellow, hopefully you</p>
+                  <p className="mt-2 text-xs font-medium text-foreground">, A future fellow, hopefully you</p>
                 </div>
               </div>
               <motion.div
@@ -262,7 +267,7 @@ function HomePage() {
             </div>
             <div className="lg:col-span-5">
               <p className="text-lg leading-relaxed text-secondary-foreground/85">
-                No leaderboards. No winners. No "demo day" theatre. Just a small group of student founders helping each other ship real things to real people — and getting honest feedback from people who've done it before.
+                No leaderboards. No winners. No "demo day" theatre. Just a small group of student founders helping each other ship real things to real people, and getting honest feedback from people who've done it before.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-secondary-foreground/85">
                 You'll leave with a product, not a pitch.
@@ -297,7 +302,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Mentors — coming soon */}
+      {/* Mentors, coming soon */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="rounded-[2rem] border border-dashed border-primary/30 bg-cream-deep p-10 text-center lg:p-16">
           <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">Mentors</p>
@@ -320,9 +325,54 @@ function HomePage() {
         <blockquote className="mt-6 font-serif text-3xl leading-tight italic text-foreground sm:text-4xl">
           "I built three things in college. I shipped <span className="underline-accent not-italic">none</span> of them. I2P is the programme I wish existed when I was 20."
         </blockquote>
-        <p className="mt-6 text-sm text-muted-foreground">— Programme advisor</p>
+        <p className="mt-6 text-sm text-muted-foreground">, Programme advisor</p>
       </section>
 
+      {/* Girls Leading Tech, the org behind I2P */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid items-center gap-10 rounded-[2.5rem] border border-border bg-card p-10 lg:grid-cols-12 lg:p-16"
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+              <Heart className="size-3.5" /> Powered by
+            </span>
+            <h2 className="mt-5 font-serif text-4xl leading-[1.05] sm:text-5xl">
+              Girls Leading <span className="italic text-primary">Tech.</span>
+            </h2>
+          </div>
+          <div className="space-y-4 text-lg leading-relaxed text-muted-foreground lg:col-span-7">
+            <p>
+              The I2P Fellowship is an initiative by <span className="font-medium text-foreground">Girls Leading Tech</span>, a global community building safer, kinder spaces for women and underrepresented students in tech.
+            </p>
+            <p>
+              From hackathons and workshops to fellowships and storytelling, GLT exists to help more young builders find their people, ship their first thing, and lead with intention.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-3">
+              <a
+                href="https://www.linkedin.com/company/girlsleadingtech"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                Visit Girls Leading Tech <ArrowRight className="size-4" />
+              </a>
+              <a
+                href="https://girlsintech.substack.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-6 py-3 text-sm font-medium text-foreground hover:bg-muted"
+              >
+                Read the newsletter
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
       {/* Final CTA */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10" style={{ perspective: 1200 }}>
         <FinalCtaTiltCard />
@@ -331,7 +381,7 @@ function HomePage() {
   );
 }
 
-type Pillar = { icon: LucideIcon; title: string; body: string };
+type Pillar = { title: string; body: string };
 
 function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
   const ref = useTilt<HTMLDivElement>();
@@ -361,7 +411,7 @@ function FinalCtaTiltCard() {
           Stop waiting for the perfect idea. Start with the one you have.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">
-          Our pilot fellowship is already in motion — follow along as we build, launch and learn together.
+          Our pilot fellowship is already in motion, follow along as we build, launch and learn together.
         </p>
         <Link
           to="/programme"

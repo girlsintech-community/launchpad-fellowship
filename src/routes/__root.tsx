@@ -30,7 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "I2P Fellowship — From idea to product. Together." },
+      { title: "I2P Fellowship, From idea to product. Together." },
       {
         name: "description",
         content:
