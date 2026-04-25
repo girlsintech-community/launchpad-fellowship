@@ -7,6 +7,7 @@ const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/programme", label: "Programme" },
+  { to: "/fellows", label: "Fellows" },
   { to: "/mentors", label: "Mentors" },
   { to: "/events", label: "Events" },
 ] as const;
@@ -23,20 +24,16 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border/60"
-          : "bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/" aria-label="I2P Fellowship — Home" className="group flex items-center gap-2">
-          <span className="font-serif text-lg tracking-tight text-foreground">I2P</span>
-        </Link>
-
-        <nav className="hidden items-center gap-1 lg:flex">
+    <header className="sticky top-0 z-50 flex justify-center px-4 pt-4 lg:pt-6">
+      <div
+        className={cn(
+          "flex items-center gap-1 rounded-full border px-2 py-1.5 transition-all duration-300",
+          scrolled
+            ? "border-border/60 bg-background/85 shadow-sm backdrop-blur-md"
+            : "border-foreground/10 bg-background/60 backdrop-blur-sm",
+        )}
+      >
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {NAV.map((item) => (
             <Link
               key={item.to}
@@ -50,20 +47,18 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block w-9" aria-hidden />
-
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden rounded-full p-2 hover:bg-muted"
+          className="rounded-full p-2 hover:bg-muted lg:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border/60 bg-background">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+        <div className="absolute left-4 right-4 top-full mt-2 rounded-2xl border border-border/60 bg-background shadow-lg lg:hidden">
+          <nav className="flex flex-col px-4 py-3">
             {NAV.map((item) => (
               <Link
                 key={item.to}
