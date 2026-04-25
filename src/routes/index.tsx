@@ -328,6 +328,51 @@ function HomePage() {
         <p className="mt-6 text-sm text-muted-foreground">, Programme advisor</p>
       </section>
 
+      {/* Girls Leading Tech, the org behind I2P */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid items-center gap-10 rounded-[2.5rem] border border-border bg-card p-10 lg:grid-cols-12 lg:p-16"
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+              <Heart className="size-3.5" /> Powered by
+            </span>
+            <h2 className="mt-5 font-serif text-4xl leading-[1.05] sm:text-5xl">
+              Girls Leading <span className="italic text-primary">Tech.</span>
+            </h2>
+          </div>
+          <div className="space-y-4 text-lg leading-relaxed text-muted-foreground lg:col-span-7">
+            <p>
+              The I2P Fellowship is an initiative by <span className="font-medium text-foreground">Girls Leading Tech</span>, a global community building safer, kinder spaces for women and underrepresented students in tech.
+            </p>
+            <p>
+              From hackathons and workshops to fellowships and storytelling, GLT exists to help more young builders find their people, ship their first thing, and lead with intention.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-3">
+              <a
+                href="https://www.linkedin.com/company/girlsleadingtech"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                Visit Girls Leading Tech <ArrowRight className="size-4" />
+              </a>
+              <a
+                href="https://girlsintech.substack.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-6 py-3 text-sm font-medium text-foreground hover:bg-muted"
+              >
+                Read the newsletter
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
       {/* Final CTA */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10" style={{ perspective: 1200 }}>
         <FinalCtaTiltCard />
