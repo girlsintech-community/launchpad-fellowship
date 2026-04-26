@@ -381,11 +381,31 @@ function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
   return (
     <div
       ref={ref}
-      className="group relative rounded-3xl border border-border bg-card p-8 transition-all hover:border-primary/40 hover:shadow-xl will-change-transform"
+      className="group relative rounded-3xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
       style={{ transformStyle: "preserve-3d" }}
     >
       <h3 className="font-serif text-2xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
+    </div>
+  );
+}
+
+type Step = { n: string; t: string; d: string };
+
+function StepTiltCard({ step: s, isLast }: { step: Step; isLast: boolean }) {
+  const ref = useTilt<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="step-card group relative rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      <span className="font-serif text-5xl text-accent" style={{ transform: "translateZ(34px)" }}>{s.n}</span>
+      <h3 className="mt-3 font-serif text-2xl" style={{ transform: "translateZ(26px)" }}>{s.t}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(16px)" }}>{s.d}</p>
+      {!isLast && (
+        <ArrowRight className="absolute -right-4 top-1/2 hidden size-5 -translate-y-1/2 text-muted-foreground/40 lg:block" />
+      )}
     </div>
   );
 }
