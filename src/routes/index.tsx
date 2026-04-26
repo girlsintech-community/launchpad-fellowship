@@ -49,8 +49,7 @@ const PILLARS = [
   },
 ];
 
-const HERO_IMAGE =
-  "https://v5.airtableusercontent.com/v3/u/52/52/1777140000000/i5K_k1SSLVRZjwOo3uIcgw/6STrxoOvI0ZyMSuViNQq-hKhMQNQ4PwGNbe0TCXkANcntLdIyATEI-AAVW2xvPUdpPDb70ow1Z-h2utfZU511UhSG3CKDRqPgkmkXkr9zFEfQbB5Viuv1bkUSDr6zlAFPIXVgjhT3kdhtmXELvOAmg/ENlmtAfZ09tZhxkWrgzpDPvboI0JTQW9Ze7q8hEEWhw";
+const HERO_IMAGE = heroImage;
 
 const STEPS = [
   { n: "01", t: "Idea", d: "Pressure-test your problem with mentors and peers. Sharpen the wedge." },
@@ -205,7 +204,7 @@ function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border/60 bg-background/85 p-5 backdrop-blur">
                   <p className="font-serif text-sm italic text-muted-foreground">"Felt less like a programme and more like a small studio of friends shipping together."</p>
-                  <p className="mt-2 text-xs font-medium text-foreground">, A future fellow, hopefully you</p>
+                  <p className="mt-2 text-xs font-medium text-foreground">~ A future fellow, hopefully you</p>
                 </div>
               </div>
               <motion.div
@@ -326,7 +325,7 @@ function HomePage() {
         <blockquote className="mt-6 font-serif text-3xl leading-tight italic text-foreground sm:text-4xl">
           "I built three things in college. I shipped <span className="underline-accent not-italic">none</span> of them. I2P is the programme I wish existed when I was 20."
         </blockquote>
-        <p className="mt-6 text-sm text-muted-foreground">, Programme advisor</p>
+        <p className="mt-6 text-sm text-muted-foreground">~ Programme advisor</p>
       </section>
 
       {/* Girls Leading Tech, the org behind I2P */}
