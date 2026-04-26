@@ -290,14 +290,7 @@ function HomePage() {
         </div>
         <div ref={stepsRef} className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
           {STEPS.map((s, i) => (
-            <div key={s.n} className="step-card relative rounded-3xl border border-border bg-card p-7 transition-transform hover:-translate-y-1 hover:shadow-lg will-change-transform">
-              <span className="font-serif text-5xl text-accent">{s.n}</span>
-              <h3 className="mt-3 font-serif text-2xl">{s.t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-              {i < STEPS.length - 1 && (
-                <ArrowRight className="absolute -right-4 top-1/2 hidden size-5 -translate-y-1/2 text-muted-foreground/40 lg:block" />
-              )}
-            </div>
+            <StepTiltCard key={s.n} step={s} isLast={i === STEPS.length - 1} />
           ))}
         </div>
       </section>
