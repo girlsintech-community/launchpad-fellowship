@@ -47,17 +47,15 @@ const PHASES = [
 ];
 
 const PERKS = [
-  "1:1 mentorship · ~2 hrs/week with a matched senior mentor",
+  "Weekly mentorship sessions with matched senior mentors",
   "Weekly cohort sessions · build sprints + show-and-tell",
-  "Office hours with operators from product, design, eng, GTM",
   "A small community Slack / Discord, kept tiny on purpose",
   "Launch support · review, copy, channels, intros",
-  "Light infra credits · domain, hosting, AI credits",
 ];
 
 const FAQS = [
   { q: "How much does it cost?", a: "The pilot cohort is free for accepted students. Long-term we'll keep it accessible, no one will be priced out." },
-  { q: "Is it online or in person?", a: "Hybrid. Most weekly sessions are online. We'll host 2–3 in-person meetups during the cohort, plus a final showcase." },
+  { q: "Is it online or in person?", a: "It's completely virtual. All sessions, mentorship and the closing showcase happen online so fellows from anywhere in the world can take part." },
   { q: "Do I need a co-founder or a team?", a: "Nope. You can apply solo or as a pair. Many fellows find their co-founders inside the cohort." },
   { q: "Do I need to know how to code?", a: "Helpful but not required. We'll lean on no-code, vibe-coding tools and AI to help non-technical builders ship." },
   { q: "Do you take equity?", a: "No. We don't take equity, fees or IP. The product is 100% yours." },
@@ -121,8 +119,8 @@ function ProgrammePage() {
           <div className="grid gap-10 lg:grid-cols-3">
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Format</p>
-              <h3 className="mt-3 font-serif text-2xl">Hybrid · Online + IRL</h3>
-              <p className="mt-2 text-secondary-foreground/80">Weekly online sessions + 2–3 in-person meetups + a closing showcase.</p>
+              <h3 className="mt-3 font-serif text-2xl">Fully virtual</h3>
+              <p className="mt-2 text-secondary-foreground/80">Weekly online sessions, mentorship and a closing showcase, open to fellows from any city or country.</p>
             </div>
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Time</p>
