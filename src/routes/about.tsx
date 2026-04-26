@@ -21,11 +21,6 @@ const VALUES = [
   { icon: Sparkles, t: "Curiosity over credentials", d: "We pick people, not résumés." },
 ];
 
-const TEAM = [
-  { name: "Programme Lead", role: "Operator turned educator", initials: "PL" },
-  { name: "Community Lead", role: "Builds spaces where founders show up", initials: "CL" },
-  { name: "Mentor Lead", role: "Connects fellows to the right people", initials: "ML" },
-];
 
 function AboutPage() {
   return (
@@ -88,21 +83,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <h2 className="font-serif text-4xl sm:text-5xl">Who's behind it.</h2>
-        <p className="mt-3 max-w-xl text-muted-foreground">A small team of operators, designers and educators, with a deep bench of mentors.</p>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {TEAM.map((m) => (
-            <div key={m.name} className="rounded-3xl border border-border bg-card p-7">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent font-serif text-xl text-primary-foreground">
-                {m.initials}
-              </div>
-              <h3 className="mt-5 font-serif text-xl">{m.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section className="mx-auto max-w-5xl px-6 py-20 text-center lg:px-10">
         <h2 className="font-serif text-4xl sm:text-5xl">Sound like your kind of room?</h2>
