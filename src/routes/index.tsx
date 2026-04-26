@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FELLOWS_STATS } from "@/data/fellows";
-import heroImage from "@/assets/hero-fellow.jpg";
+import heroImage from "@/assets/fellows/vedika.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
