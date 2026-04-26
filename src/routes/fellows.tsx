@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Linkedin, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FELLOWS, FELLOWS_STATS, fellowInitials, type Fellow } from "@/data/fellows";
@@ -40,18 +40,17 @@ const GRADIENTS = [
 
 function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
+  const [imgFailed, setImgFailed] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    const inner = innerRef.current;
-    if (!el || !inner) return;
+    if (!el) return;
 
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to(inner, {
+      gsap.to(el, {
         rotateY: x * 14,
         rotateX: -y * 14,
         transformPerspective: 900,
@@ -61,7 +60,7 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
       });
     };
     const onLeave = () =>
-      gsap.to(inner, { rotateX: 0, rotateY: 0, duration: 0.8, ease: "power3.out" });
+      gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.8, ease: "power3.out" });
 
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
@@ -72,6 +71,7 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
   }, []);
 
   const gradient = GRADIENTS[index % GRADIENTS.length];
+  const showImage = fellow.image && !imgFailed;
 
   return (
     <motion.div
@@ -80,25 +80,22 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: (index % 4) * 0.05, ease: "easeOut" }}
       ref={ref}
-      style={{ perspective: 1000 }}
-      className="group"
+      className="group relative h-full overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-500 will-change-transform hover:border-primary/40 hover:shadow-xl"
+      style={{ transformStyle: "preserve-3d" }}
     >
-      <div
-        ref={innerRef}
-        className="relative h-full overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-500 will-change-transform group-hover:border-primary/40 group-hover:shadow-xl"
-        style={{ transformStyle: "preserve-3d" }}
-      >
+      <div>
         {/* Avatar block */}
         <div
           className={`relative aspect-[5/4] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${gradient}`}
           style={{ transform: "translateZ(40px)" }}
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.35),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.3),transparent_55%)]" />
-          {fellow.image ? (
+          {showImage ? (
             <img
               src={fellow.image}
               alt={fellow.name}
               loading="lazy"
+              onError={() => setImgFailed(true)}
               className="absolute inset-0 h-full w-full object-cover"
             />
           ) : (
