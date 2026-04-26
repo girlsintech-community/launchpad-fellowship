@@ -1,14 +1,15 @@
-import akankshyaImg from "@/assets/fellows/akankshya.jpg";
-import nthabisengImg from "@/assets/fellows/nthabiseng.jpg";
-import gnanImg from "@/assets/fellows/gnan.jpg";
-import vedikaImg from "@/assets/fellows/vedika.jpg";
-import bhuvanashreeImg from "@/assets/fellows/bhuvanashree.jpg";
-import suzanneImg from "@/assets/fellows/suzanne.jpg";
-import purvaImg from "@/assets/fellows/purva.jpg";
-import samriddhiImg from "@/assets/fellows/samriddhi.jpg";
-import vaishnaviImg from "@/assets/fellows/vaishnavi.jpg";
-import khairunImg from "@/assets/fellows/khairun.jpg";
-import anishImg from "@/assets/fellows/anish.jpg";
+import akankshyaImg from "@/assets/fellows/akankshya.webp";
+import nthabisengImg from "@/assets/fellows/nthabiseng.webp";
+import tiaImg from "@/assets/fellows/tia.webp";
+import gnanImg from "@/assets/fellows/gnan.webp";
+import vedikaImg from "@/assets/fellows/vedika.webp";
+import bhuvanashreeImg from "@/assets/fellows/bhuvanashree.webp";
+import suzanneImg from "@/assets/fellows/suzanne.webp";
+import purvaImg from "@/assets/fellows/purva.webp";
+import samriddhiImg from "@/assets/fellows/samriddhi.webp";
+import vaishnaviImg from "@/assets/fellows/vaishnavi.webp";
+import khairunImg from "@/assets/fellows/khairun.webp";
+import anishImg from "@/assets/fellows/anish.webp";
 
 export type Fellow = {
   name: string;
