@@ -51,6 +51,7 @@ export const FELLOWS: Fellow[] = [
     college: "Sambhram Institute of Technology",
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/tia-sharma-001879331/",
+    image: tiaImg,
   },
   {
     name: "Gnan Sruthi R",
