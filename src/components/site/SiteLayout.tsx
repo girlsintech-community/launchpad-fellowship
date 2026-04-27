@@ -7,6 +7,8 @@ import { ScrollToTop } from "./ScrollToTop";
 import { CustomCursor } from "./CustomCursor";
 import { AmbientBackdrop } from "./AmbientBackdrop";
 import { ThemeToggle } from "./ThemeToggle";
+import { ViewTransitions } from "./ViewTransitions";
+
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
