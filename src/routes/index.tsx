@@ -6,10 +6,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { GlowCard } from "@/components/site/GlowCard";
-import { FELLOWS_STATS } from "@/data/fellows";
-import heroImage from "@/assets/fellows/vedika.webp";
+import { MagneticButton } from "@/components/site/MagneticButton";
+import { SplitText } from "@/components/site/SplitText";
+import { Marquee } from "@/components/site/Marquee";
+import { FELLOWS, FELLOWS_STATS } from "@/data/fellows";
+import heroImage from "@/assets/fellows/suzanne.webp";
 
 gsap.registerPlugin(ScrollTrigger);
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,9 +141,13 @@ function HomePage() {
             >
               <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">The Fellowship</p>
               <h1 className="mt-3 font-serif text-5xl leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-[5.5rem]">
-                Idea to Product
-                <br />
-                <span className="italic text-primary">(I2P) Fellowship.</span>
+                <SplitText as="span" text="Idea to Product" className="block" />
+                <SplitText
+                  as="span"
+                  text="(I2P) Fellowship."
+                  className="block italic text-primary"
+                  delay={0.2}
+                />
               </h1>
               <p className="mt-6 font-serif text-xl italic text-muted-foreground">
                 From idea to product, together.
@@ -148,20 +156,25 @@ function HomePage() {
                 A fellowship for students who'd rather build than enter another pitch competition. Real mentors. A real community. A real launch, to real users.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/programme"
-                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  See how it works
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/60 px-7 py-3.5 text-base font-medium text-foreground hover:bg-muted"
-                >
-                  About I2P
-                </Link>
+                <MagneticButton>
+                  <Link
+                    to="/programme"
+                    className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-all hover:shadow-lg"
+                  >
+                    See how it works
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </MagneticButton>
+                <MagneticButton strength={0.25}>
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background/60 px-7 py-3.5 text-base font-medium text-foreground hover:bg-muted"
+                  >
+                    About I2P
+                  </Link>
+                </MagneticButton>
               </div>
+
 
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week fellowship</div>
@@ -238,6 +251,23 @@ function HomePage() {
             Meet the fellows <ArrowRight className="size-4" />
           </Link>
         </div>
+      </section>
+
+      {/* Marquee strip — cities & colleges */}
+      <section className="border-y border-border/60 bg-cream-deep/40 py-8">
+        <Marquee
+          speed={45}
+          items={FELLOWS.map((f) => (
+            <span key={f.name} className="flex items-center gap-3 whitespace-nowrap">
+              <span className="font-serif text-2xl italic text-foreground">{f.city}</span>
+              <span className="text-muted-foreground">·</span>
+              <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                {f.college}
+              </span>
+              <span className="mx-6 h-1.5 w-1.5 rounded-full bg-primary/60" />
+            </span>
+          ))}
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
