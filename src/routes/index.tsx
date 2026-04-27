@@ -253,6 +253,23 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Marquee strip — cities & colleges */}
+      <section className="border-y border-border/60 bg-cream-deep/40 py-8">
+        <Marquee
+          speed={45}
+          items={FELLOWS.map((f) => (
+            <span key={f.name} className="flex items-center gap-3 whitespace-nowrap">
+              <span className="font-serif text-2xl italic text-foreground">{f.city}</span>
+              <span className="text-muted-foreground">·</span>
+              <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                {f.college}
+              </span>
+              <span className="mx-6 h-1.5 w-1.5 rounded-full bg-primary/60" />
+            </span>
+          ))}
+        />
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="overflow-hidden rounded-[2.5rem] bg-secondary px-8 py-16 text-secondary-foreground sm:px-14 lg:px-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12">
