@@ -276,7 +276,7 @@ function HomePage() {
         </div>
         <div ref={stepsRef} className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
           {STEPS.map((s, i) => (
-            <StepTiltCard key={s.n} step={s} isLast={i === STEPS.length - 1} />
+            <StepTiltCard key={s.n} step={s} isLast={i === STEPS.length - 1} index={i} />
           ))}
         </div>
       </section>
