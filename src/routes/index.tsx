@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { GlowCard } from "@/components/site/GlowCard";
 import { FELLOWS_STATS } from "@/data/fellows";
 import heroImage from "@/assets/fellows/vedika.webp";
 
@@ -13,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "I2P Fellowship, From idea to product. Together." },
+      { title: "I2P Fellowship" },
       {
         name: "description",
         content:
@@ -119,22 +120,7 @@ function HomePage() {
     };
   }, []);
 
-  // Scroll-triggered 3D reveal on steps
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".step-card", {
-        opacity: 0,
-        y: 60,
-        rotateX: -25,
-        transformPerspective: 800,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: stepsRef.current, start: "top 80%" },
-      });
-    }, stepsRef);
-    return () => ctx.revert();
-  }, []);
+  // Steps reveal handled by framer-motion whileInView per-card (more reliable than GSAP from)
 
   return (
     <SiteLayout>
@@ -290,7 +276,7 @@ function HomePage() {
         </div>
         <div ref={stepsRef} className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
           {STEPS.map((s, i) => (
-            <StepTiltCard key={s.n} step={s} isLast={i === STEPS.length - 1} />
+            <StepTiltCard key={s.n} step={s} isLast={i === STEPS.length - 1} index={i} />
           ))}
         </div>
       </section>
@@ -379,34 +365,46 @@ type Pillar = { title: string; body: string };
 function PillarTiltCard({ pillar: p }: { pillar: Pillar }) {
   const ref = useTilt<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      className="group relative rounded-3xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
-      style={{ transformStyle: "preserve-3d" }}
-    >
-      <h3 className="font-serif text-2xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
-    </div>
+    <GlowCard className="rounded-3xl">
+      <div
+        ref={ref}
+        className="group relative rounded-3xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <h3 className="font-serif text-2xl" style={{ transform: "translateZ(28px)" }}>{p.title}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(18px)" }}>{p.body}</p>
+      </div>
+    </GlowCard>
   );
 }
 
 type Step = { n: string; t: string; d: string };
 
-function StepTiltCard({ step: s, isLast }: { step: Step; isLast: boolean }) {
+function StepTiltCard({ step: s, isLast, index }: { step: Step; isLast: boolean; index: number }) {
   const ref = useTilt<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      className="step-card group relative rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
-      style={{ transformStyle: "preserve-3d" }}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+      className="relative"
     >
-      <span className="font-serif text-5xl text-accent" style={{ transform: "translateZ(34px)" }}>{s.n}</span>
-      <h3 className="mt-3 font-serif text-2xl" style={{ transform: "translateZ(26px)" }}>{s.t}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(16px)" }}>{s.d}</p>
+      <GlowCard className="rounded-3xl">
+        <div
+          ref={ref}
+          className="step-card group relative rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <span className="font-serif text-5xl text-accent" style={{ transform: "translateZ(34px)" }}>{s.n}</span>
+          <h3 className="mt-3 font-serif text-2xl" style={{ transform: "translateZ(26px)" }}>{s.t}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground" style={{ transform: "translateZ(16px)" }}>{s.d}</p>
+        </div>
+      </GlowCard>
       {!isLast && (
         <ArrowRight className="absolute -right-4 top-1/2 hidden size-5 -translate-y-1/2 text-muted-foreground/40 lg:block" />
       )}
-    </div>
+    </motion.div>
   );
 }
 
