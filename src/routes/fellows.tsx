@@ -146,6 +146,7 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           Idea coming soon, we'll share what they're building shortly.
         </div>
         </div>
+        </div>
       </GlowCard>
     </motion.div>
   );
