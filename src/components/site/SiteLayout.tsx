@@ -9,13 +9,13 @@ import { AmbientBackdrop } from "./AmbientBackdrop";
 import { ThemeToggle } from "./ThemeToggle";
 import { ViewTransitions } from "./ViewTransitions";
 
-
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <AmbientBackdrop />
       <SmoothScroll />
       <ScrollProgress />
+      <ViewTransitions />
       <CustomCursor />
       <Header />
       <main className="flex-1">{children}</main>
