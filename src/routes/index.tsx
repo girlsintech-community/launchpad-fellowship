@@ -120,22 +120,7 @@ function HomePage() {
     };
   }, []);
 
-  // Scroll-triggered 3D reveal on steps
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".step-card", {
-        opacity: 0,
-        y: 60,
-        rotateX: -25,
-        transformPerspective: 800,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: stepsRef.current, start: "top 80%" },
-      });
-    }, stepsRef);
-    return () => ctx.revert();
-  }, []);
+  // Steps reveal handled by framer-motion whileInView per-card (more reliable than GSAP from)
 
   return (
     <SiteLayout>
