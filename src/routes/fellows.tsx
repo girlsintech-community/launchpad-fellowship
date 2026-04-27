@@ -80,10 +80,14 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: (index % 4) * 0.05, ease: "easeOut" }}
-      ref={ref}
-      className="group relative h-full overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-500 will-change-transform hover:border-primary/40 hover:shadow-xl"
-      style={{ transformStyle: "preserve-3d" }}
+      className="h-full"
     >
+      <GlowCard className="h-full rounded-3xl">
+        <div
+          ref={ref}
+          className="group relative h-full overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-500 will-change-transform hover:border-primary/40 hover:shadow-xl"
+          style={{ transformStyle: "preserve-3d" }}
+        >
       <div>
         {/* Avatar block */}
         <div
@@ -141,7 +145,8 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
         >
           Idea coming soon, we'll share what they're building shortly.
         </div>
-      </div>
+        </div>
+      </GlowCard>
     </motion.div>
   );
 }
