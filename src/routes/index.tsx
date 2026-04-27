@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { GlowCard } from "@/components/site/GlowCard";
 import { FELLOWS_STATS } from "@/data/fellows";
 import heroImage from "@/assets/fellows/vedika.webp";
 
@@ -13,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "I2P Fellowship, From idea to product. Together." },
+      { title: "I2P Fellowship" },
       {
         name: "description",
         content:
