@@ -418,12 +418,12 @@ function StepTiltCard({ step: s, isLast, index }: { step: Step; isLast: boolean;
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-      className="relative"
+      className="relative h-full"
     >
-      <GlowCard className="rounded-3xl">
+      <GlowCard className="rounded-3xl h-full">
         <div
           ref={ref}
-          className="step-card group relative rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
+          className="step-card group relative h-full rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl will-change-transform"
           style={{ transformStyle: "preserve-3d" }}
         >
           <span className="font-serif text-5xl text-accent" style={{ transform: "translateZ(34px)" }}>{s.n}</span>
