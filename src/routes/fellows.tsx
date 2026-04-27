@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Linkedin, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { GlowCard } from "@/components/site/GlowCard";
 import { FELLOWS, FELLOWS_STATS, fellowInitials, type Fellow } from "@/data/fellows";
 
 gsap.registerPlugin(ScrollTrigger);
