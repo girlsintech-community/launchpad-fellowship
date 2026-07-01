@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as LibraryRouteImport } from './routes/library'
 import { Route as FellowsRouteImport } from './routes/fellows'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const ProgrammeRoute = ProgrammeRouteImport.update({
 const MentorsRoute = MentorsRouteImport.update({
   id: '/mentors',
   path: '/mentors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FellowsRoute = FellowsRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
@@ -60,21 +68,36 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/fellows' | '/mentors' | '/programme'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/fellows'
+    | '/library'
+    | '/mentors'
+    | '/programme'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/fellows' | '/mentors' | '/programme'
-  id: '__root__' | '/' | '/about' | '/fellows' | '/mentors' | '/programme'
+  to: '/' | '/about' | '/fellows' | '/library' | '/mentors' | '/programme'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/fellows'
+    | '/library'
+    | '/mentors'
+    | '/programme'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   FellowsRoute: typeof FellowsRoute
+  LibraryRoute: typeof LibraryRoute
   MentorsRoute: typeof MentorsRoute
   ProgrammeRoute: typeof ProgrammeRoute
 }
@@ -93,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/mentors'
       fullPath: '/mentors'
       preLoaderRoute: typeof MentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fellows': {
@@ -123,6 +153,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   FellowsRoute: FellowsRoute,
+  LibraryRoute: LibraryRoute,
   MentorsRoute: MentorsRoute,
   ProgrammeRoute: ProgrammeRoute,
 }
