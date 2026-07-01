@@ -9,7 +9,7 @@ const NAV = [
   { to: "/programme", label: "Programme" },
   { to: "/fellows", label: "Fellows" },
   { to: "/mentors", label: "Mentors" },
-  { to: "/events", label: "Events" },
+  { to: "/library", label: "Library" },
 ] as const;
 
 export function Header() {
