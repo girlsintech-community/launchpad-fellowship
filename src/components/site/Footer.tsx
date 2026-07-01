@@ -19,7 +19,7 @@ const NAV_LINKS = [
   { to: "/programme", label: "Programme" },
   { to: "/fellows", label: "Fellows" },
   { to: "/mentors", label: "Mentors" },
-  { to: "/events", label: "Events" },
+  { to: "/library", label: "Library" },
 ] as const;
 
 // X/Twitter icon (lucide-react has Twitter, fine for now)

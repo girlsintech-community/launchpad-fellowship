@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Linkedin, Briefcase } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { GlowCard } from "@/components/site/GlowCard";
+import mannasImg from "@/assets/mentors/mannas.webp";
+import varshaImg from "@/assets/mentors/varsha.webp";
+import chiragImg from "@/assets/mentors/chirag.webp";
 
 export const Route = createFileRoute("/mentors")({
   head: () => ({
@@ -22,18 +25,20 @@ const MENTORS = [
     company: "Wander",
     designation: "Product Engineer",
     linkedin: "https://www.linkedin.com/in/mannasnarang/",
+    image: mannasImg,
     context:
-      "Mannas Narang is a product engineer and entrepreneur passionate about building technology-driven solutions that solve real-world problems. With experience spanning software development, product engineering, and startup leadership, he has consistently demonstrated a strong ability to transform ideas into scalable products.\n\nCurrently serving as a Product Engineer II at Wander, Mannas works on developing and enhancing technology products that deliver impactful user experiences. Prior to this, he founded SerialBuilder and Bizspar, where he gained hands-on experience in entrepreneurship, product strategy, and business development, leading ventures from ideation to execution.\n\nHis professional journey also includes a research and development internship at the Indian Institute of Technology (IIT) Guwahati and freelance web development projects, where he collaborated with clients to design and build digital solutions tailored to diverse business needs. These experiences have strengthened his expertise in software engineering, product thinking, and rapid execution.\n\nKnown for his builder mindset and entrepreneurial drive, Mannas enjoys exploring emerging technologies, creating innovative products, and sharing insights from his startup and engineering journey. His work reflects a commitment to continuous learning, problem-solving, and leveraging technology to create meaningful impact.",
+      "Mannas is a product engineer and entrepreneur who turns ideas into scalable products. Currently a Product Engineer II at Wander, he's building technology that ships to real users every day.\n\nBefore Wander, he founded SerialBuilder and Bizspar — leading both ventures from ideation to execution, and picking up the reps that only come from running your own thing. He's also spent time on R&D at IIT Guwahati and freelance web development, working with clients across a wide spread of industries.\n\nA builder at heart, Mannas loves exploring emerging tech, shipping fast, and sharing what he learns along the way with anyone trying to do the same.",
     gradient: "from-primary/25 via-accent/25 to-secondary/15",
     initials: "MN",
   },
   {
     name: "Varsha Agarwal",
-    company: "WICCI – Women's Indian Chamber of Commerce and Industry",
-    designation: "Karnataka State Vice President AI/ML Stream",
+    company: "WICCI",
+    designation: "Karnataka State VP, AI/ML Stream",
     linkedin: "https://www.linkedin.com/in/varsha-agarwal-change-maker/",
+    image: varshaImg,
     context:
-      "Varsha Agarwal is a seasoned technology and business leader with over two decades of experience building and scaling enterprise products, platforms, data ecosystems, and AI-driven solutions for global organizations. Throughout her career, she has led large-scale digital transformation initiatives, combining strategic vision with deep execution expertise across product management, engineering, data, and operations.\n\nHer leadership journey includes establishing high-impact Centers of Excellence (CoEs) at leading organizations such as Publicis Sapient and VMware. At VMware, she spearheaded the creation of an AI Innovation CoE, developing frameworks that enabled organizations to take AI initiatives from concept to production while ensuring governance, scalability, and cost accountability. She also led the development of enterprise-grade platforms spanning customer data, revenue systems, MarTech, analytics, and business-critical applications used daily by sales, marketing, executive, and employee communities.\n\nWith end-to-end ownership across product strategy, engineering, quality, DevOps, security, and operations, Varsha has successfully managed delivery portfolios exceeding $15 million and led engineering organizations of more than 70 professionals supporting multi-billion-dollar businesses. Her experience extends to direct P&L ownership and driving measurable business outcomes for global clients.\n\nSince 2024, Varsha has been focused on helping organizations unlock the value of AI through strategy development, use-case prioritization, data readiness, and AI-first product design. Her expertise includes agentic AI systems, RAG architectures, model and tool orchestration, human-in-the-loop workflows, observability, governance, and production-grade AI implementation.\n\nBeyond her corporate leadership, Varsha is deeply committed to advancing AI education and ecosystem development. She leads AI capability-building programs for enterprises and academic institutions across India, the UAE, and the UK. She also serves as the Karnataka State Vice President (AI/ML) at WICCI, advises emerging innovation initiatives, and is a sought-after speaker at industry forums including NASSCOM, Adobe Symposium, Rakuten, Red Hat, Global Women in Tech, and premier academic institutions.\n\nRecognized for her ability to bridge business strategy, technology innovation, and execution at scale, Varsha continues to empower organizations and professionals to successfully navigate the evolving AI landscape.",
+      "Varsha is a technology and business leader with 20+ years scaling enterprise products, data platforms, and AI systems for global organizations. She's built high-impact Centers of Excellence at Publicis Sapient and VMware — including an AI Innovation CoE taking initiatives from concept to production with real governance.\n\nShe's owned end-to-end delivery across product, engineering, DevOps, security and operations — managing portfolios north of $15M and 70+ person engineering teams supporting multi-billion-dollar businesses.\n\nSince 2024 she's focused on helping organizations unlock AI value: agentic systems, RAG architectures, human-in-the-loop workflows and production-grade AI. She also leads AI capability programs across India, the UAE and the UK, and serves as Karnataka VP (AI/ML) at WICCI.",
     gradient: "from-accent/30 via-primary/15 to-secondary/20",
     initials: "VA",
   },
@@ -42,8 +47,9 @@ const MENTORS = [
     company: "Stealth",
     designation: "Founder",
     linkedin: "https://www.linkedin.com/in/chiraggds/",
+    image: chiragImg,
     context:
-      "Chirag is an entrepreneur, builder, and community-driven leader passionate about transforming ideas into impactful ventures. With a strong focus on innovation, business growth, and problem-solving, he has consistently demonstrated the ability to identify opportunities, develop strategic solutions, and create value for diverse stakeholders.\n\nThroughout his entrepreneurial journey, Chirag has worked at the intersection of leadership, technology, and community building, driving initiatives that foster collaboration, learning, and sustainable growth. His approach combines a deep understanding of market needs with a commitment to execution, enabling him to turn ambitious visions into tangible outcomes.\n\nKnown for his entrepreneurial mindset and dedication to empowering others, Chirag actively mentors aspiring professionals and founders, sharing insights on innovation, leadership, and building meaningful ventures. His work reflects a belief that entrepreneurship is not just about creating businesses, but about creating lasting impact.",
+      "Chirag is an entrepreneur, builder and community leader focused on turning ideas into ventures that actually ship. He works at the intersection of leadership, technology and community — driving initiatives that foster collaboration, learning and sustainable growth.\n\nHis approach pairs a sharp read on market needs with a real commitment to execution, which is what lets him take ambitious visions and turn them into tangible outcomes.\n\nBeyond his own work, Chirag actively mentors aspiring professionals and founders — sharing what he's learned about innovation, leadership and building things that last. For him, entrepreneurship isn't just about businesses; it's about impact.",
     gradient: "from-secondary/20 via-primary/20 to-accent/30",
     initials: "CD",
   },
@@ -64,26 +70,35 @@ function MentorCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+      className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16"
     >
       {/* Card */}
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-        <GlowCard className="rounded-[2rem]">
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-8 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-10">
-            {/* Avatar area */}
+        <GlowCard className="rounded-[2rem] h-full">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-8">
+            {/* Photo */}
             <div
-              className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
+              className={`relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.35),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.3),transparent_55%)]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-serif text-7xl font-medium text-foreground/80 sm:text-8xl">
-                  {mentor.initials}
-                </span>
-              </div>
+              {mentor.image ? (
+                <img
+                  src={mentor.image}
+                  alt={mentor.name}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-serif text-7xl font-medium text-foreground/80 sm:text-8xl">
+                    {mentor.initials}
+                  </span>
+                </div>
+              )}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
 
             {/* Name & meta */}
-            <div className="mt-6">
+            <div className="mt-5">
               <h3 className="font-serif text-2xl leading-tight text-foreground sm:text-3xl">
                 {mentor.name}
               </h3>
@@ -91,8 +106,8 @@ function MentorCard({
                 {mentor.designation}
               </p>
               <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                <Briefcase className="size-3.5" />
-                {mentor.company}
+                <Briefcase className="size-3.5 shrink-0" />
+                <span className="truncate">{mentor.company}</span>
               </p>
             </div>
 
@@ -101,7 +116,8 @@ function MentorCard({
               href={mentor.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground"
+              className="mt-auto inline-flex w-fit items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground pt-2.5"
+              style={{ marginTop: "1.25rem" }}
             >
               <Linkedin className="size-4" />
               Connect on LinkedIn
@@ -112,7 +128,7 @@ function MentorCard({
       </div>
 
       {/* Context / bio */}
-      <div className={reverse ? "lg:order-1" : "lg:order-2"}>
+      <div className={`flex items-center ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <div className="relative">
           {/* Decorative quote mark */}
           <span

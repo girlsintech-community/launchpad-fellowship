@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as LibraryRouteImport } from './routes/library'
 import { Route as FellowsRouteImport } from './routes/fellows'
-import { Route as EventsRouteImport } from './routes/events'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -26,14 +26,14 @@ const MentorsRoute = MentorsRouteImport.update({
   path: '/mentors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FellowsRoute = FellowsRouteImport.update({
   id: '/fellows',
   path: '/fellows',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -50,16 +50,16 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/events': typeof EventsRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/events': typeof EventsRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
@@ -67,22 +67,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/events': typeof EventsRoute
   '/fellows': typeof FellowsRoute
+  '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/events' | '/fellows' | '/mentors' | '/programme'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/fellows'
+    | '/library'
+    | '/mentors'
+    | '/programme'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/events' | '/fellows' | '/mentors' | '/programme'
+  to: '/' | '/about' | '/fellows' | '/library' | '/mentors' | '/programme'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/events'
     | '/fellows'
+    | '/library'
     | '/mentors'
     | '/programme'
   fileRoutesById: FileRoutesById
@@ -90,8 +96,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  EventsRoute: typeof EventsRoute
   FellowsRoute: typeof FellowsRoute
+  LibraryRoute: typeof LibraryRoute
   MentorsRoute: typeof MentorsRoute
   ProgrammeRoute: typeof ProgrammeRoute
 }
@@ -112,18 +118,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fellows': {
       id: '/fellows'
       path: '/fellows'
       fullPath: '/fellows'
       preLoaderRoute: typeof FellowsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -146,20 +152,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  EventsRoute: EventsRoute,
   FellowsRoute: FellowsRoute,
+  LibraryRoute: LibraryRoute,
   MentorsRoute: MentorsRoute,
   ProgrammeRoute: ProgrammeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
