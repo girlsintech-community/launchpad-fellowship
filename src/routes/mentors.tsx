@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Linkedin, Briefcase } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { GlowCard } from "@/components/site/GlowCard";
+import mannasImg from "@/assets/mentors/mannas.webp";
+import varshaImg from "@/assets/mentors/varsha.webp";
+import chiragImg from "@/assets/mentors/chirag.webp";
 
 export const Route = createFileRoute("/mentors")({
   head: () => ({
