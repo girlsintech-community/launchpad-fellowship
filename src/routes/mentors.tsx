@@ -128,7 +128,7 @@ function MentorCard({
       </div>
 
       {/* Context / bio */}
-      <div className={reverse ? "lg:order-1" : "lg:order-2"}>
+      <div className={`flex items-center ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <div className="relative">
           {/* Decorative quote mark */}
           <span
