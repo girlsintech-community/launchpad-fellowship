@@ -70,7 +70,7 @@ function MentorCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+      className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16"
     >
       {/* Card */}
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
