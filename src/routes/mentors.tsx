@@ -74,22 +74,31 @@ function MentorCard({
     >
       {/* Card */}
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-        <GlowCard className="rounded-[2rem]">
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-8 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-10">
-            {/* Avatar area */}
+        <GlowCard className="rounded-[2rem] h-full">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-8">
+            {/* Photo */}
             <div
-              className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
+              className={`relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.78_0.12_78/0.35),transparent_55%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_38/0.3),transparent_55%)]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-serif text-7xl font-medium text-foreground/80 sm:text-8xl">
-                  {mentor.initials}
-                </span>
-              </div>
+              {mentor.image ? (
+                <img
+                  src={mentor.image}
+                  alt={mentor.name}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-serif text-7xl font-medium text-foreground/80 sm:text-8xl">
+                    {mentor.initials}
+                  </span>
+                </div>
+              )}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
 
             {/* Name & meta */}
-            <div className="mt-6">
+            <div className="mt-5">
               <h3 className="font-serif text-2xl leading-tight text-foreground sm:text-3xl">
                 {mentor.name}
               </h3>
@@ -97,8 +106,8 @@ function MentorCard({
                 {mentor.designation}
               </p>
               <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                <Briefcase className="size-3.5" />
-                {mentor.company}
+                <Briefcase className="size-3.5 shrink-0" />
+                <span className="truncate">{mentor.company}</span>
               </p>
             </div>
 
@@ -107,7 +116,8 @@ function MentorCard({
               href={mentor.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground"
+              className="mt-auto inline-flex w-fit items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground pt-2.5"
+              style={{ marginTop: "1.25rem" }}
             >
               <Linkedin className="size-4" />
               Connect on LinkedIn
