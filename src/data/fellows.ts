@@ -9,7 +9,7 @@ import purvaImg from "@/assets/fellows/purva.webp";
 import samriddhiImg from "@/assets/fellows/samriddhi.webp";
 import vaishnaviImg from "@/assets/fellows/vaishnavi.webp";
 import khairunImg from "@/assets/fellows/khairun.webp";
-import anishImg from "@/assets/fellows/anish.webp";
+import unaysahImg from "@/assets/fellows/unaysah.webp";
 
 export type Fellow = {
   name: string;
@@ -134,16 +134,6 @@ export const FELLOWS: Fellow[] = [
     image: khairunImg,
   },
   {
-    name: "Anish Kashyap",
-    city: "Bangalore",
-    state: "Karnataka",
-    country: "India",
-    college: "Polaris School of Technology",
-    year: "1st year",
-    linkedin: "https://www.linkedin.com/in/anish-kashyap-534779389",
-    image: anishImg,
-  },
-  {
     name: "Unaysah (Humera)",
     city: "San Jose",
     state: "California",
@@ -151,11 +141,12 @@ export const FELLOWS: Fellow[] = [
     college: "Mission College",
     year: "Class of 2028",
     linkedin: "https://www.linkedin.com/in/unaysah-ron",
+    image: unaysahImg,
   },
 ];
 
 export const FELLOWS_STATS = {
-  fellows: FELLOWS.length, // 13
+  fellows: FELLOWS.length, // 12
   countries: 3,
   states: 9,
 };
