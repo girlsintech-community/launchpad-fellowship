@@ -17,7 +17,7 @@ export const Route = createFileRoute("/fellows")({
       {
         name: "description",
         content:
-          "Meet the 13 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship, across 3 countries and 9 states.",
+          "Meet the 12 fellows shipping real products in the pilot Idea to Product (I2P) Fellowship, across 3 countries and 9 states.",
       },
       { property: "og:title", content: "Fellows, I2P Fellowship" },
       {
