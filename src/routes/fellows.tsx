@@ -23,7 +23,7 @@ export const Route = createFileRoute("/fellows")({
       {
         property: "og:description",
         content:
-          "13 fellows. 3 countries. 9 states. The pilot cohort of student builders behind the I2P Fellowship.",
+          "12 fellows. 3 countries. 9 states. The pilot cohort of student builders behind the I2P Fellowship.",
       },
     ],
   }),
