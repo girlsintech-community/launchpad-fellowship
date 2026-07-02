@@ -9,7 +9,7 @@ import purvaImg from "@/assets/fellows/purva.webp";
 import samriddhiImg from "@/assets/fellows/samriddhi.webp";
 import vaishnaviImg from "@/assets/fellows/vaishnavi.webp";
 import khairunImg from "@/assets/fellows/khairun.webp";
-import anishImg from "@/assets/fellows/anish.webp";
+import unaysahImg from "@/assets/fellows/unaysah.webp";
 
 export type Fellow = {
   name: string;
