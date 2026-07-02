@@ -1,7 +1,6 @@
-// @lovable.dev/vite-tanstack-config bundles tanstackStart, viteReact, tailwindcss,
-// tsConfigPaths, cloudflare (build-only), componentTagger (dev-only), and more.
-// We pass options through `tanstackStart` and disable the Cloudflare adapter so
-// the build emits a static SPA that Vercel (or any static host) can serve.
+// Static SPA build for Vercel (or any static host).
+// SPA mode emits a prerendered index.html shell into dist/client and skips
+// the Cloudflare/Nitro server output, so no serverless runtime is required.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
