@@ -74,11 +74,11 @@ function MentorCard({
     >
       {/* Card */}
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-        <GlowCard className="rounded-[2rem] h-full">
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-8">
+        <GlowCard className="rounded-[2rem] h-full lg:max-h-[calc(100vh-10rem)]">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card p-5 shadow-sm transition-all hover:border-primary/40 hover:shadow-xl sm:p-6">
             {/* Photo */}
             <div
-              className={`relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
+              className={`relative aspect-[4/5] lg:aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${mentor.gradient}`}
             >
               {mentor.image ? (
                 <img
@@ -98,14 +98,14 @@ function MentorCard({
             </div>
 
             {/* Name & meta */}
-            <div className="mt-5">
-              <h3 className="font-serif text-2xl leading-tight text-foreground sm:text-3xl">
+            <div className="mt-4">
+              <h3 className="font-serif text-2xl leading-tight text-foreground">
                 {mentor.name}
               </h3>
-              <p className="mt-1.5 text-sm font-medium text-primary">
+              <p className="mt-1 text-sm font-medium text-primary">
                 {mentor.designation}
               </p>
-              <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
+              <p className="mt-0.5 flex items-center gap-1.5 text-sm text-muted-foreground">
                 <Briefcase className="size-3.5 shrink-0" />
                 <span className="truncate">{mentor.company}</span>
               </p>
