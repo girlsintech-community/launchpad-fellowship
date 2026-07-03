@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as MentorsRouteImport } from './routes/mentors'
 import { Route as LibraryRouteImport } from './routes/library'
@@ -16,6 +17,11 @@ import { Route as FellowsRouteImport } from './routes/fellows'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammeRoute = ProgrammeRouteImport.update({
   id: '/programme',
   path: '/programme',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/library': typeof LibraryRoute
   '/mentors': typeof MentorsRoute
   '/programme': typeof ProgrammeRoute
+  '/testimonials': typeof TestimonialsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/library'
     | '/mentors'
     | '/programme'
+    | '/testimonials'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/fellows' | '/library' | '/mentors' | '/programme'
+  to:
+    | '/'
+    | '/about'
+    | '/fellows'
+    | '/library'
+    | '/mentors'
+    | '/programme'
+    | '/testimonials'
   id:
     | '__root__'
     | '/'
@@ -91,6 +108,7 @@ export interface FileRouteTypes {
     | '/library'
     | '/mentors'
     | '/programme'
+    | '/testimonials'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,10 +118,18 @@ export interface RootRouteChildren {
   LibraryRoute: typeof LibraryRoute
   MentorsRoute: typeof MentorsRoute
   ProgrammeRoute: typeof ProgrammeRoute
+  TestimonialsRoute: typeof TestimonialsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programme': {
       id: '/programme'
       path: '/programme'
@@ -156,16 +182,8 @@ const rootRouteChildren: RootRouteChildren = {
   LibraryRoute: LibraryRoute,
   MentorsRoute: MentorsRoute,
   ProgrammeRoute: ProgrammeRoute,
+  TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
