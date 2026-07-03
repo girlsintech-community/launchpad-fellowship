@@ -328,13 +328,33 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10">
-        <Quote className="mx-auto size-8 text-accent" />
-        <blockquote className="mt-6 font-serif text-3xl leading-tight italic text-foreground sm:text-4xl">
-          "I built three things in college. I shipped <span className="underline-accent not-italic">none</span> of them. I2P is the programme I wish existed when I was 20."
-        </blockquote>
-        <p className="mt-6 text-sm text-muted-foreground">~ Programme advisor</p>
+      {/* Fellow testimonials */}
+      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
+        <div className="mb-10 text-center">
+          <Quote className="mx-auto size-8 text-accent" />
+          <p className="mt-4 font-serif text-sm uppercase tracking-[0.22em] text-primary">In their own words</p>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">What the fellows are saying.</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <figure className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+            <blockquote className="font-serif text-lg leading-relaxed italic text-foreground">
+              "The Idea to Product Fellowship was a great learning experience. The mentor sessions provided practical insights and helped me understand product development better. I'm grateful for the opportunity and the supportive learning environment."
+            </blockquote>
+            <figcaption className="mt-6 text-sm">
+              <span className="font-medium text-foreground">Samriddhi Dua</span>
+              <span className="text-muted-foreground"> · Fellow</span>
+            </figcaption>
+          </figure>
+          <figure className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+            <blockquote className="font-serif text-lg leading-relaxed italic text-foreground">
+              "A program that felt less like solo learning and more like we were growing together. It was an amazing experience, one that helped me find my people."
+            </blockquote>
+            <figcaption className="mt-6 text-sm">
+              <span className="font-medium text-foreground">Tia Sharma</span>
+              <span className="text-muted-foreground"> · Fellow</span>
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       {/* Girls Leading Tech, the org behind I2P */}
