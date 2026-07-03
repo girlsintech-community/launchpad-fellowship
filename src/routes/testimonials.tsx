@@ -138,6 +138,33 @@ function TestimonialsPage() {
           ))}
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-28 lg:px-10">
+        <div className="mb-10">
+          <p className="font-serif text-sm uppercase tracking-[0.22em] text-primary">Written notes</p>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Fellows on what they took away.</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <figure className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+            <blockquote className="font-serif text-lg leading-relaxed italic text-foreground">
+              "My biggest takeaway from this fellowship was gaining the confidence to put myself and my ideas out there. The overall experience was amazing, but meeting new people and being exposed to fresh perspectives was honestly the best part."
+            </blockquote>
+            <figcaption className="mt-6 text-sm">
+              <span className="font-medium text-foreground">Tia Sharma</span>
+              <span className="text-muted-foreground"> · Fellow</span>
+            </figcaption>
+          </figure>
+          <figure className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+            <blockquote className="font-serif text-lg leading-relaxed italic text-foreground">
+              "I learned how to turn an idea into a user-focused product through expert mentorship and practical guidance."
+            </blockquote>
+            <figcaption className="mt-6 text-sm">
+              <span className="font-medium text-foreground">Samriddhi Dua</span>
+              <span className="text-muted-foreground"> · Fellow</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
     </SiteLayout>
   );
 }
