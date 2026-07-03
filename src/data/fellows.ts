@@ -20,6 +20,7 @@ export type Fellow = {
   year: string;
   linkedin: string;
   image?: string;
+  idea?: string;
 };
 
 export const FELLOWS: Fellow[] = [
