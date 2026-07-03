@@ -138,12 +138,12 @@ function FellowCard({ fellow, index }: { fellow: Fellow; index: number }) {
           </a>
         </div>
 
-        {/* Idea placeholder */}
+        {/* Idea */}
         <div
           className="mt-4 rounded-xl border border-dashed border-border bg-muted/40 p-3 text-xs italic text-muted-foreground"
           style={{ transform: "translateZ(15px)" }}
         >
-          Idea coming soon, we'll share what they're building shortly.
+          {fellow.idea ?? "Idea coming soon, we'll share what they're building shortly."}
         </div>
         </div>
         </div>

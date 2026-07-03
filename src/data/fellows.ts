@@ -20,6 +20,7 @@ export type Fellow = {
   year: string;
   linkedin: string;
   image?: string;
+  idea?: string;
 };
 
 export const FELLOWS: Fellow[] = [
@@ -32,6 +33,7 @@ export const FELLOWS: Fellow[] = [
     year: "3rd year",
     linkedin: "https://www.linkedin.com/in/akankshya-jena-80971b338",
     image: akankshyaImg,
+    idea: "AWAAZ — a free, multilingual, voice-first grievance platform that turns any citizen's complaint into a properly formatted letter, finds the right officer, and guides follow-up.",
   },
   {
     name: "Nthabiseng Hlongwane",
@@ -42,6 +44,7 @@ export const FELLOWS: Fellow[] = [
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/NthabisengHlongwane",
     image: nthabisengImg,
+    idea: "A platform to translate easily and accurately between the native local languages of Africa.",
   },
   {
     name: "Tia Sharma",
@@ -52,6 +55,7 @@ export const FELLOWS: Fellow[] = [
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/tia-sharma-001879331/",
     image: tiaImg,
+    idea: "A neutral, AI-driven transparency engine that tracks what politicians say versus what they actually do, giving citizens the facts to decide the truth for themselves.",
   },
   {
     name: "Gnan Sruthi R",
@@ -62,6 +66,7 @@ export const FELLOWS: Fellow[] = [
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3",
     image: gnanImg,
+    idea: "A data-driven tool that helps junior PMs prioritize features and build roadmaps by cutting through competing stakeholder demands.",
   },
   {
     name: "Vedika Sharma",
@@ -72,6 +77,7 @@ export const FELLOWS: Fellow[] = [
     year: "1st year",
     linkedin: "https://www.linkedin.com/in/vedika-sharma-286b793a1",
     image: vedikaImg,
+    idea: "An AI-powered pitch deck coach that helps early-stage founders turn unclear ideas into investor-ready narratives with honest feedback on what's weak.",
   },
   {
     name: "Bhuvanashree S",
@@ -82,6 +88,7 @@ export const FELLOWS: Fellow[] = [
     year: "4th year",
     linkedin: "https://www.linkedin.com/in/bhuvanashree-s-5525a9258/",
     image: bhuvanashreeImg,
+    idea: "Veda — an AI-powered learning assistant.",
   },
   {
     name: "Suzanne Daniel Thomas",
@@ -92,6 +99,7 @@ export const FELLOWS: Fellow[] = [
     year: "1st year",
     linkedin: "https://www.linkedin.com/in/suzanne-daniel-thomas-313ba4371/",
     image: suzanneImg,
+    idea: "TimeMax — an AI planning assistant that turns your tasks, deadlines and energy level into a realistic daily timetable, evolving into an adaptive productivity copilot.",
   },
   {
     name: "Purva Upadhyay",
@@ -112,6 +120,7 @@ export const FELLOWS: Fellow[] = [
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/samriddhi-dua-55862a322",
     image: samriddhiImg,
+    idea: "Praedicta — an AI-powered geo-spatial civic intelligence system that predicts potholes, waterlogging and garbage overflow so authorities can act proactively.",
   },
   {
     name: "Vaishnavi Desale",
@@ -122,6 +131,7 @@ export const FELLOWS: Fellow[] = [
     year: "2nd year",
     linkedin: "https://www.linkedin.com/in/vaishnavidesale27",
     image: vaishnaviImg,
+    idea: "Skill Gap Analyzer — a career guidance system that maps a student's resume against real job descriptions and turns the gap into an actionable learning roadmap.",
   },
   {
     name: "Khairun Nissa",
@@ -132,6 +142,7 @@ export const FELLOWS: Fellow[] = [
     year: "3rd year",
     linkedin: "https://www.linkedin.com/in/khairun-nissa-62956b2b9",
     image: khairunImg,
+    idea: "SnapFind — helps photographers find and segregate the photos clicked at an event, automating hours of manual sorting.",
   },
   {
     name: "Unaysah (Humera)",
@@ -143,6 +154,7 @@ export const FELLOWS: Fellow[] = [
     linkedin: "https://www.linkedin.com/in/unaysah-ron",
     image: unaysahImg,
   },
+
 ];
 
 export const FELLOWS_STATS = {
