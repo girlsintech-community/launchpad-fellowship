@@ -9,7 +9,7 @@ import { GlowCard } from "@/components/site/GlowCard";
 import { MagneticButton } from "@/components/site/MagneticButton";
 import { SplitText } from "@/components/site/SplitText";
 import { Marquee } from "@/components/site/Marquee";
-import { FELLOWS, FELLOWS_STATS } from "@/data/fellows";
+import { FELLOWS_STATS } from "@/data/fellows";
 import heroImage from "@/assets/fellows/suzanne.webp";
 
 gsap.registerPlugin(ScrollTrigger);
