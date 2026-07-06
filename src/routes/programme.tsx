@@ -68,7 +68,7 @@ function ProgrammePage() {
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-12 lg:px-10 lg:pt-28">
         <p className="font-serif text-sm uppercase tracking-[0.2em] text-primary">The programme</p>
         <h1 className="mt-4 font-serif text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
-          Twelve weeks. One real product. <span className="italic">Forever changed.</span>
+          Eight weeks. One real product. <span className="italic">Forever changed.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           A focused, phase-by-phase journey from "I have an idea" to "I have users", with the mentors, structure and peers to make it actually happen.
