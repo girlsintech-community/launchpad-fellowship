@@ -21,25 +21,25 @@ export const Route = createFileRoute("/programme")({
 
 const PHASES = [
   {
-    weeks: "Weeks 1–3",
+    weeks: "Weeks 1–2",
     title: "Idea",
-    body: "Sharpen the problem. Talk to 30 potential users. Define the wedge, the smallest, sharpest thing worth building first.",
+    body: "Sharpen the problem. Talk to potential users. Define the wedge, the smallest, sharpest thing worth building first.",
     deliverable: "A one-page problem brief & a v0 spec.",
   },
   {
-    weeks: "Weeks 4–7",
+    weeks: "Weeks 3–5",
     title: "Build",
     body: "Weekly building sprints. Pair-programming sessions. Workshops on scoping, shipping fast, and saying no.",
     deliverable: "A working v1 in the hands of 10 friendly users.",
   },
   {
-    weeks: "Weeks 8–10",
+    weeks: "Weeks 6–7",
     title: "Launch",
-    body: "Real launch. Public posts, communities, cold DMs that don't suck. First 100 real users, and what they actually do.",
+    body: "Real launch. Public posts, communities, cold DMs that don't suck. First real users, and what they actually do.",
     deliverable: "A live product with a real user base.",
   },
   {
-    weeks: "Weeks 11–12",
+    weeks: "Week 8",
     title: "Iterate",
     body: "Measure. Talk to users. Ship again. Decide what's next, keep going, pivot, or open-source it.",
     deliverable: "A founder's story you'll be proud to tell.",
