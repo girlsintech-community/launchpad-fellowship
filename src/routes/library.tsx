@@ -48,8 +48,8 @@ const MASTERCLASSES: Masterclass[] = [
 
 function VideoCard({ item, index }: { item: Masterclass; index: number }) {
   const [playing, setPlaying] = useState(false);
-  const thumb = `https://i.ytimg.com/vi/${item.id}/maxresdefault.jpg`;
-  const fallback = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
+  const thumb = `https://i.ytimg.com/vi/${item.id}/maxresdefault.jpg?v=2`;
+  const fallback = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg?v=2`;
 
   return (
     <motion.div
