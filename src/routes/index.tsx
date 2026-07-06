@@ -253,17 +253,23 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Marquee strip — cities & colleges */}
+      {/* Marquee strip — founder quotes */}
       <section className="border-y border-border/60 bg-cream-deep/40 py-8">
         <Marquee
-          speed={45}
-          items={FELLOWS.map((f) => (
-            <span key={f.name} className="flex items-center gap-3 whitespace-nowrap">
-              <span className="font-serif text-2xl italic text-foreground">{f.city}</span>
-              <span className="text-muted-foreground">·</span>
-              <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
-                {f.college}
-              </span>
+          speed={55}
+          items={[
+            { q: "Ideas are easy. Implementation is everything.", a: "Guy Kawasaki" },
+            { q: "The way to get started is to quit talking and begin doing.", a: "Walt Disney" },
+            { q: "Done is better than perfect.", a: "Sheryl Sandberg" },
+            { q: "If you're not embarrassed by the first version of your product, you've launched too late.", a: "Reid Hoffman" },
+            { q: "Move fast and build things.", a: "The I2P way" },
+            { q: "Fall in love with the problem, not the solution.", a: "Uri Levine" },
+            { q: "Make something people want.", a: "Paul Graham" },
+            { q: "The best way to predict the future is to invent it.", a: "Alan Kay" },
+          ].map((item, i) => (
+            <span key={i} className="flex items-center gap-4 whitespace-nowrap">
+              <span className="font-serif text-2xl italic text-foreground">"{item.q}"</span>
+              <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">~ {item.a}</span>
               <span className="mx-6 h-1.5 w-1.5 rounded-full bg-primary/60" />
             </span>
           ))}
