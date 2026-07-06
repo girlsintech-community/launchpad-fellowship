@@ -211,7 +211,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} Idea to Product Fellowship by{" "}
             <a
-              href="https://www.linkedin.com/company/girlsleadingtech"
+              href="https://girlsleadingtech.com/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-accent"
@@ -220,7 +220,18 @@ export function Footer() {
             </a>
             .
           </p>
-          <p className="italic">Not a competition. A community.</p>
+          <p className="flex items-center gap-3">
+            <a
+              href="https://girlsleadingtech.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 hover:text-accent"
+            >
+              girlsleadingtech.com <ArrowUpRight className="size-3" />
+            </a>
+            <span className="hidden md:inline">·</span>
+            <span className="italic">Not a competition. A community.</span>
+          </p>
         </div>
       </div>
     </footer>
