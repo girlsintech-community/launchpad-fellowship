@@ -177,7 +177,7 @@ function HomePage() {
 
 
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />4-week fellowship</div>
+                <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" />8-week fellowship</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-accent" />Virtual format</div>
                 <div className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-primary" />For student builders</div>
               </div>
