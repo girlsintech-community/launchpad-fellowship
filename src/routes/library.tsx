@@ -25,31 +25,31 @@ type Masterclass = {
 
 const MASTERCLASSES: Masterclass[] = [
   {
-    id: "7M6dTnAQmcc",
+    id: "-Pnfmr80-PM",
     title: "Masterclass 01",
-    subtitle: "Foundations for young builders",
-  },
-  {
-    id: "UHpEOQjf6nk",
-    title: "Masterclass 02",
-    subtitle: "Product thinking in practice",
+    subtitle: "Founders, feedback, and reps",
   },
   {
     id: "jBXzzJ6QyOc",
-    title: "Masterclass 03",
+    title: "Masterclass 02",
     subtitle: "Shipping and shipping again",
   },
   {
-    id: "-Pnfmr80-PM",
+    id: "UHpEOQjf6nk",
+    title: "Masterclass 03",
+    subtitle: "Product thinking in practice",
+  },
+  {
+    id: "7M6dTnAQmcc",
     title: "Masterclass 04",
-    subtitle: "Founders, feedback, and reps",
+    subtitle: "Foundations for young builders",
   },
 ];
 
 function VideoCard({ item, index }: { item: Masterclass; index: number }) {
   const [playing, setPlaying] = useState(false);
-  const thumb = `https://i.ytimg.com/vi/${item.id}/maxresdefault.jpg`;
-  const fallback = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
+  const thumb = `https://i.ytimg.com/vi/${item.id}/maxresdefault.jpg?v=2`;
+  const fallback = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg?v=2`;
 
   return (
     <motion.div

@@ -28,6 +28,7 @@ const TESTIMONIALS: Testimonial[] = [
   { id: "Ia1dJsR4R1k", title: "Fellow interview 02", subtitle: "In their own words" },
   { id: "MzIkUVFxB3M", title: "Fellow interview 03", subtitle: "In their own words" },
   { id: "D7JzcDryV_I", title: "Fellow interview 04", subtitle: "In their own words" },
+  { id: "tD39xnYjgDY", title: "Fellow interview 05", subtitle: "In their own words" },
 ];
 
 function VideoCard({ item, index }: { item: Testimonial; index: number }) {

@@ -11,9 +11,9 @@ export const Route = createFileRoute("/programme")({
   head: () => ({
     meta: [
       { title: "Programme, How I2P Fellowship works" },
-      { name: "description", content: "A 12-week phase-by-phase breakdown of the I2P Fellowship, what you'll do, what you get, and what we expect." },
+      { name: "description", content: "An 8-week phase-by-phase breakdown of the I2P Fellowship, what you'll do, what you get, and what we expect." },
       { property: "og:title", content: "Programme, How I2P Fellowship works" },
-      { property: "og:description", content: "Idea → Build → Launch → Iterate. Twelve weeks. One real product." },
+      { property: "og:description", content: "Idea → Build → Launch → Iterate. Eight weeks. One real product." },
     ],
   }),
   component: ProgrammePage,
@@ -21,25 +21,25 @@ export const Route = createFileRoute("/programme")({
 
 const PHASES = [
   {
-    weeks: "Weeks 1–3",
+    weeks: "Weeks 1–2",
     title: "Idea",
-    body: "Sharpen the problem. Talk to 30 potential users. Define the wedge, the smallest, sharpest thing worth building first.",
+    body: "Sharpen the problem. Talk to potential users. Define the wedge, the smallest, sharpest thing worth building first.",
     deliverable: "A one-page problem brief & a v0 spec.",
   },
   {
-    weeks: "Weeks 4–7",
+    weeks: "Weeks 3–5",
     title: "Build",
     body: "Weekly building sprints. Pair-programming sessions. Workshops on scoping, shipping fast, and saying no.",
     deliverable: "A working v1 in the hands of 10 friendly users.",
   },
   {
-    weeks: "Weeks 8–10",
+    weeks: "Weeks 6–7",
     title: "Launch",
-    body: "Real launch. Public posts, communities, cold DMs that don't suck. First 100 real users, and what they actually do.",
+    body: "Real launch. Public posts, communities, cold DMs that don't suck. First real users, and what they actually do.",
     deliverable: "A live product with a real user base.",
   },
   {
-    weeks: "Weeks 11–12",
+    weeks: "Week 8",
     title: "Iterate",
     body: "Measure. Talk to users. Ship again. Decide what's next, keep going, pivot, or open-source it.",
     deliverable: "A founder's story you'll be proud to tell.",
@@ -68,7 +68,7 @@ function ProgrammePage() {
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-12 lg:px-10 lg:pt-28">
         <p className="font-serif text-sm uppercase tracking-[0.2em] text-primary">The programme</p>
         <h1 className="mt-4 font-serif text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
-          Twelve weeks. One real product. <span className="italic">Forever changed.</span>
+          Eight weeks. One real product. <span className="italic">Forever changed.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           A focused, phase-by-phase journey from "I have an idea" to "I have users", with the mentors, structure and peers to make it actually happen.
@@ -129,7 +129,7 @@ function ProgrammePage() {
             </div>
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Duration</p>
-              <h3 className="mt-3 font-serif text-2xl">12 weeks</h3>
+              <h3 className="mt-3 font-serif text-2xl">8 weeks</h3>
               <p className="mt-2 text-secondary-foreground/80">Long enough to ship something real. Short enough to keep momentum.</p>
             </div>
           </div>

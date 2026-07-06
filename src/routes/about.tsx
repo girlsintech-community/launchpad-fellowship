@@ -76,7 +76,7 @@ function AboutPage() {
           </div>
           <div className="lg:col-span-7 space-y-5 text-lg text-muted-foreground">
             <p>You're a student (undergrad or postgrad) with an idea that won't leave you alone.</p>
-            <p>You can give the programme ~10 hours a week for 12 weeks.</p>
+            <p>You can give the programme ~10 hours a week for 8 weeks.</p>
             <p>You'd rather build something tiny and real than something big and imaginary.</p>
             <p>You're kind. You give feedback as generously as you take it.</p>
           </div>
