@@ -11,9 +11,9 @@ export const Route = createFileRoute("/programme")({
   head: () => ({
     meta: [
       { title: "Programme, How I2P Fellowship works" },
-      { name: "description", content: "A 12-week phase-by-phase breakdown of the I2P Fellowship, what you'll do, what you get, and what we expect." },
+      { name: "description", content: "An 8-week phase-by-phase breakdown of the I2P Fellowship, what you'll do, what you get, and what we expect." },
       { property: "og:title", content: "Programme, How I2P Fellowship works" },
-      { property: "og:description", content: "Idea → Build → Launch → Iterate. Twelve weeks. One real product." },
+      { property: "og:description", content: "Idea → Build → Launch → Iterate. Eight weeks. One real product." },
     ],
   }),
   component: ProgrammePage,
