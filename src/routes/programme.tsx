@@ -129,7 +129,7 @@ function ProgrammePage() {
             </div>
             <div>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-accent">Duration</p>
-              <h3 className="mt-3 font-serif text-2xl">12 weeks</h3>
+              <h3 className="mt-3 font-serif text-2xl">8 weeks</h3>
               <p className="mt-2 text-secondary-foreground/80">Long enough to ship something real. Short enough to keep momentum.</p>
             </div>
           </div>
